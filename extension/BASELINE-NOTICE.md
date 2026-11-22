@@ -1,0 +1,1 @@
+The stage-57 and stage-73 source files are from Iaroslav Argunov's published verification package, DOI 10.5281/zenodo.24448957, and retain its MIT license. See BASELINE-MIT.txt. The stage-73 i32.txt certificate from the same release is included under CC BY 4.0; see BASELINE-CC-BY-4.0.txt. This packet accompanies a local research addendum.
