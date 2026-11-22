@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "Please cite the paper and identify the version of the computational supplement used."
+type: software
+title: "A certified lower bound for the growth constant of plane meanders: computational supplement"
+version: "1.0.0"
+authors:
+  - family-names: Argunov
+    given-names: Iaroslav
+date-released: 2026-11-22
+license:
+  - MIT
+  - CC-BY-4.0
+  - CC-BY-SA-4.0
+preferred-citation:
+  type: unpublished
+  status: preprint
+  doi: "10.5281/zenodo.24448957"
+  title: "A certified lower bound for the growth constant of plane meanders"
+  authors:
+    - family-names: Argunov
+      given-names: Iaroslav
+  year: 2026
+references:
+  - type: unpublished
+    title: "Shortest and near-shortest halves of closed plane meanders"
+    authors:
+      - family-names: Argunov
+        given-names: Iaroslav
+    year: 2026
+repository-code: "https://github.com/Kimargin8/meander-growth-bound"
