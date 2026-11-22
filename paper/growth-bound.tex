@@ -1,0 +1,239 @@
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,booktabs,microtype}
+\usepackage[hidelinks]{hyperref}
+\newenvironment{proof}[1][Proof]{\par\noindent\textit{#1.} }{\unskip\nobreak\hfill\hbox{$\square$}\par}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newcommand{\result}{11.6854827408}
+\newcommand{\wnum}{4581442652581}
+\newcommand{\wden}{392062763189}
+\newcommand{\newnum}{12401248195833}
+\newcommand{\newden}{1058038773811}
+\newcommand{\newresult}{11.7209770594}
+\newcommand{\prefbits}{71}
+\hypersetup{pdftitle={A certified lower bound for the growth constant of plane meanders},pdfauthor={Iaroslav Argunov}}
+\title{\bfseries A certified lower bound for the growth constant of plane meanders}
+\author{Iaroslav Argunov\\{\small Independent Researcher, Oakland, California, USA}}
+\date{November 22, 2026\\{\small Revised manuscript, version 1.1}}
+\begin{document}
+\maketitle
+\begin{abstract}
+Let \(M_n\) count the connected closed plane meanders on \(2n\) ordered sites. We prove that \(\lim M_n^{1/n}>\newresult\). Starting with the connectivity transfer on at most 32 exposed ends, we sum excursions to width 34 that return to the address of an ordinary boundary shift. The resulting comparison has just two additional rational weights. Two programs check its integer witness on every coordinate. The same construction gives a deterministic relative approximation to \(M_n\) with prescribed error \(\epsilon\) in \(O^*(2^{14n/25}\epsilon^{-3/2})\) bit operations. A separate computation confined to width 26 gives the independent lower bound \(11.421465\).
+
+\end{abstract}
+
+\section{Counting convention and result}
+Fix the order of sites on a horizontal line. A closed meander is an ordered pair of noncrossing perfect matchings on the sites, drawn on opposite banks, whose union is one cycle. In particular \(M_1=1,\ M_2=2,\ M_3=8\). Albert and Paterson proved the existence of
+\(\mu=\lim_{n\to\infty}M_n^{1/n}\) and obtained \(11.380\le\mu\le12.901\) by bounding the language of meander words \cite{ap}. Caroppo, Da Lozzo, Di Battista and Vihrovs give the upper bound \(12.806\) and recall \(11.380\) on the lower side \cite{caroppo}. Borga, F\'eray and Winkler record the interval \([11.380,12.806]\) in their recent survey \cite[p.~41]{bfw}. The constants here use the order \(n\); with the number of crossings as exponent their square roots apply.
+
+\begin{theorem}\label{main}
+The ordinary meandric growth constant satisfies
+\[
+             \mu\ \ge\ \frac{\newnum}{\newden}\ >\ \newresult .
+\]
+\end{theorem}
+
+Jensen's transfer through a vertical cut \cite{jensen} records how the exposed ends are paired. Restriction to a fixed width gives a family of finite graphs; the width-32 graph alone has growth less than \(11.688634\). Sections~\ref{physical} and~\ref{integer} establish that comparison. Section~\ref{exits} sums excursions beyond the strip and proves Theorem~\ref{main}. Section~\ref{uniform} gives a lower bound valid at every finite order. Earlier uses of restricted meander languages include Bacher's exterior arches \cite{bacher} and the constructions of Albert and Paterson \cite{ap}.
+
+\section{A finite transfer inside the connected language}\label{physical}
+Order the \(2k\) exposed ends by following the boundary of the scanned half-plane from the uppermost to the lowermost end. Write \((\pi,u)\) for their noncrossing pairing by paths already drawn and the number \(u\) of upper ends. The slit lies between ends \(u\) and \(u+1\), with \(0\le u\le 2k\). Retain \(1\le k\le W/2\) for an even \(W\ge2\). The first site necessarily opens two ends and reaches \(o=(\{1,2\},1)\). Strip off this site and the final site, which closes its two ends in state \(o\).
+
+At an interior site there are at most four choices. Opening on both banks inserts an adjacent pair at the slit and increases \(u\) by one. Closing on both deletes the two ends next to the slit and joins their former partners, decreasing \(u\) by one. This move requires ends on both banks that belong to different paths. Closing one bank and opening the other moves the slit one place towards the bank being closed and preserves \(\pi\). Omit moves that leave the strip or pop an empty bank. Give each remaining choice weight one, including its multiplicity if two choices reach the same stored state. Let \(T_W\) be the resulting matrix, with source rows. Its two-step restriction \(A_W=T_W^2|_{u\ {\rm odd}}\) contains the root.
+
+\begin{lemma}\label{strip}
+Writing \(C_n(W)\) for the connected meanders of order \(n\) confined to this strip, one has \(C_n(W)=(A_W^{\,n-1})_{oo}\). Every physical state communicates with \(o\) within its own width. Moreover
+\[
+ \lambda_W:=\lim_{n\to\infty} C_n(W)^{1/n}=\rho(A_W),\qquad
+        \lambda_W\uparrow\mu\quad (W\to\infty,\ W\ {\rm even}).
+\]
+\end{lemma}
+\begin{proof}
+The two bracket words determine the arch matchings uniquely. The closing rule excludes exactly the closures of a component before the final site. Appending the compulsory last site to a return closes the sole remaining path, proving the counting identity.
+
+Shifts let us place the slit at any gap without changing the pairing. For \(2k\ge4\), some two consecutive ends are not partners (the two neighbors of an interior end cannot both be its partner). Shift to such a gap and apply the double close. Repetition reaches width two, where a shift reaches \(o\). In the reverse direction every noncrossing pairing has an adjacent paired pair: take a shortest arc. Shift the slit between its ends and undo a double opening. Repetition constructs a path from \(o\) to the original state. The widths never exceed the initial width in either reduction. Every move flips the slit parity; at \(o\) a shift immediately followed by its reverse is legal. Thus the two-step matrix on the odd class is primitive, giving the asserted growth of returns.
+
+The counts increase with \(W\) and are bounded above by \(M_n\). At \(W=2n\) every order-\(n\) word fits, since at site \(t\) there are at most \(2\min(t,2n-t)\) exposed ends. Concatenating \(h\) interior returns of \(n-1\) slots yields \(M_n^h\) distinct returns in \(h(n-1)\) slots. Hence \(\lambda_{2n}\ge M_n^{1/(n-1)}\) for each \(n\ge2\). Taking limits proves the last assertion.
+\end{proof}
+
+\section{Integer witnesses inside the strip}\label{integer}
+For a nonnegative matrix \(A\) and a vector \(v\) with all entries positive, put \(L(v)=\min_i(Av)_i/v_i\). Positivity implies \(A^m v\ge L(v)^m v\) entrywise. Thus \(L(v)\le\rho(A)\). One can avoid spectral theory altogether. If every state reaches \(o\) in exactly \(b\) two-step slots, then \(A^b e_o\ge{\bf1}\). Consequently
+\[
+ (A^{m+b})_{oo}\ \ge\ (A^m v)_o/\max_i v_i
+             \ \ge\ L(v)^m\,v_o/\max_i v_i .
+\]
+The existence of a common \(b\) follows from Lemma~\ref{strip} by padding at \(o\). For the stored graphs the programs also verify such a \(b\) directly, starting with the root indicator. This argument only needs the count of root returns and a return from each stored state.
+
+\paragraph{Representing the two banks.}
+At width \(2k\), reflection swaps the banks, reverses the order of the ends, and replaces \(u\) by \(2k-u\). Store all pairs with \(u\le k\), keeping every pairing at \(u=k\). At this boundary the shift to \(k+1\) is evaluated at the reflected pairing and \(k-1\). A double opening or closing stays in the stored half after the change of width. Both shift choices are counted even when they have the same destination. If a full vector is invariant under bank exchange, one stored sweep is precisely the restriction of the full sweep. Write \(\widetilde A_W\) for the stored two-step matrix. Induction from the invariant root indicator gives \((\widetilde A_W^m e_o)_o=(A_W^m e_o)_o\) for every \(m\ge0\). Below, \(A\) denotes the matrix used for that comparison. The number of stored cells is \(\sum_{k=1}^{W/2}(k+1)\mathrm{Cat}_k\). In particular no orbit sizes divide the count.
+
+\paragraph{Constructing the witness.}
+Start with \(2^{52}\) in each odd cell. Form the unrounded \(z=Av\) by an even sweep and an odd sweep. At a recorded round find the smallest ratio \(z_i/v_i\) by integer cross multiplication over all odd cells, checking positivity. Between rounds rescale by a common positive factor and round down; the choice serves only to find a vector with a good minimum. The row has at most four letters per site, so \(\max z\le16\cdot 2^{52}\). Values fit in unsigned 64 bits and products for fraction comparisons fit in 128 bits. At width 32 a power-of-two shift supplies the rescaling; transitions are generated without storing a four-entry row for each cell. The two parities occupy disjoint locations. The old odd entry survives until its own ratio is tested.
+
+\begin{center}
+\small
+\begin{tabular}{rrrr}
+\toprule
+Width & Stored cells & Round & Lower witness \(L(v)\), rounded down\\
+\midrule
+26 & 27\,088\,869 & 250 & 11.449834\\
+28 & 54\,177\,740 & 300 & 11.541973\\
+30 & 209\,295\,260 & 320 & 11.618175\\
+32 & 810\,375\,650 & 300 & 11.680705\\
+32 & 810\,375\,650 & 300, shifted & \result\\
+\bottomrule
+\end{tabular}
+\end{center}
+\noindent The first row retains all physical splits and tests both parities; its minimum also bounds the odd class. At width 32 the ordinary minimum exceeds \(11.68\), so \(w_a=2Av-23v\) and \(w_b=5Av-58v\) are strictly positive. Applying \(A\) once more gives their extrema exactly. The respective lower ratios are \(3074044368692/263088297614\) and \(18325770610324/1568251052756\). The second reduces to \(\wnum/\wden\). All \(386\,058\,577\) odd cells reach the root in exactly 30 single moves. Both shifted vectors therefore give strip lower bounds. The smaller of the two upper ratios, \(15264493432827/1305926315603\), bounds only the width-32 growth constant.
+
+\section{Summing boundary excursions}\label{exits}
+Albert and Paterson \cite{ap} observed that the word \(URD\) acts as a right shift and used substitutions of shifts with prescribed displacement in their lower-bound construction. Here \(U\) and \(D\) are a simultaneous opening and closing. We apply this principle at the top of a finite physical strip. The location of the slit determines which walks can occur and gives the two certified weights below.
+
+A top shift at width \(W\) takes \((\pi,u)\) to \((\pi,u+d)\), \(d=\pm1\). It also has longer realizations. Open a pair at the slit. The outer slit now starts at \(a=u+1\) on the path of gaps \(0,\ldots,W+2\), with the new ends directly to either side. While at width \(W+2\), shift the slit along this path and close at \(b=a+d\). At the final slit exactly one of the two new ends meets the neighbouring old end. Splicing them lets the other new end take the old end's place and partner. This restores \(\pi\) and puts the inner slit at \(u+d\). Each such excursion is distinguished by its word of shifts. The successive visits to widths at most \(W\) determine the factorization of any complete word. The gap at the last outer site determines the direction \(d\).
+
+Let \(P\) denote the path adjacency on \(m=W+3\) vertices and let \(s>2\) mark one site by \(z=1/s\). After removal of one factor \(z\), the extra coefficient of the ordinary shift is
+\[
+ \sum_{\ell\ge0}s^{-(\ell+1)}(P^\ell)_{ab}
+       =[(sI-P)^{-1}]_{ab}.
+\]
+Only odd \(\ell\) contribute. For \(i=\min(a,b)\), expansion of the path determinant and its adjacent cofactor gives
+\[
+ [(sI-P)^{-1}]_{i,i+1}=\frac{D_iD_{m-i-2}}{D_m},
+ \qquad D_0=1,\quad D_1=s,\quad D_j=sD_{j-1}-D_{j-2}.
+\]
+All the required coefficients at a given width thus use one table of \(m+1\) determinants. Cancelling common factors of \(s\) leaves rational arithmetic in \(s^2\).
+
+We use \(W=32\) and evaluate at \(s_0^2=1173/100\). Rounding each extra coefficient down to a multiple of \(1/4096\) gives \(469/4096\) on \(i=1,32\), and \(474/4096\) on \(2\le i\le31\). The exact comparisons also hold on the shorter path consisting of the gaps at distance at most four from the closing gap \(b\), intersected with \(0,\ldots,34\), for each choice of direction. For example, these comparisons can be checked by the same recurrence applied to that subpath, translating its left endpoint to zero. A second checker sums outer walks and bounds the positive tail. We use the shorter paths below. At any \(2<s\le s_0\) their added weights are at least the stated fractions, by positivity of every term of the series.
+
+Let \(C\) equal \(T_{32}\) with these extra fractions on its top shifts. For the first-return generating matrix \(B(z)\) of the restricted words, this construction gives \(B(1/s)\ge C/s\). Reflection preserves the coefficients in the two directions, so the stored matrices act on invariant vectors as in Section~\ref{integer}. In particular the physical and stored root-return series coincide, coefficient by coefficient. This assertion follows by starting from the invariant root indicator; no symmetry assumption on a proposed witness is needed.
+
+\paragraph{Integer certificate.}
+On a boundary row with available shift destinations \(j\), add \(\lfloor\sum_j k_{ij}v_j/4096\rfloor\) to the ordinary transfer, where \(k_{ij}\) is 469 or 474. Write \(F\) for a stored sweep with this downward rounding. Positivity gives \(F(F(v))\le \widetilde C^2v\) on the odd class. Extending the width-32 witness by 60 rounds with the uniform extra weight \(7/64\), followed by 80 rounds with the two gap weights, produces \(v\). A program with separate transition and indexing code read the final vector and verified every one of the 386\,058\,577 ratios. Both scans give
+\[
+             \min_i \frac{F(F(v))_i}{v_i}
+                 = X=\frac{\newnum}{\newden}.
+\]
+All cells of the tested vector are positive and at most \(2^{52}\). The row sum of \(C\) is at most four. Across two sweeps the integers compared are at most \(2^{56}\); the weighted numerator on a top row is at most \(474\cdot 2\cdot 4\cdot2^{52}<2^{64}\). Products of the compared entries fit in 128 bits.
+
+\begin{proof}[Proof of Theorem~\ref{main}]
+Put \(s=\sqrt X\), so \(2<s<s_0\). Write \(A=\widetilde C^2\) on odd states. Every stored odd state reaches the root in 30 ordinary sites, hence \(A^{15}e_o\ge{\bf1}\). From \(Av\ge Xv\) we get
+\[
+       (A^{h+15})_{oo}\ge X^h v_o/\max v \qquad(h\ge0).
+\]
+The root entries of \(\widetilde B(1/s)^{2h+30}\) are therefore bounded below by a fixed positive number. The sum of these entries over \(h\) diverges. Adding the compulsory first and last sites embeds the counted words, with their actual lengths, in connected meanders. The series \(\sum_n M_n s^{-2n}\) diverges, which proves \(\mu\ge X\).
+\end{proof}
+
+
+\section{A second certificate from one root}
+Independently generate all physical matchings by the partner of the first end, followed by the interior and exterior matchings, and keep both banks distinct. At width 26 let \(A\) denote the two-step transfer. Write \(R_m=(A^m)_{oo}\). Concatenation, as in Lemma~\ref{strip}, gives \(\mu\ge R_m^{1/m}\) for every \(m\ge1\). No other entry of the final vector enters this inequality.
+
+Set \(S=2^{45}\), \(x_0=S e_o\), choose integer shifts \(b_i\), and set \(x_i=\lfloor A x_{i-1}/2^{b_i}\rfloor\) entrywise. Then \(S A^m e_o\ge 2^{\sum b_i} x_m\). At \(m=3100\) the sum of the shifts is \(10894\) and \(x_m(o)=11\,568\,213\,483\,477\). The exact comparison
+\[
+ 2^{10894}\cdot 11568213483477\cdot 10^{18600}
+       > 2^{45}\cdot 11421465^{3100}
+\]
+proves \(\mu>11.421465\). This run used about 624 MiB of peak resident memory and 135.18 seconds. A second normalization, rounding down after multiplication by \(5/57\), first exceeds \(S\) at the root after 1859 slots and so gives \(\mu>11.4\) directly.
+
+\paragraph{Replication.}
+The accompanying archive contains the sources, integer logs, SHA-256 digests, and build and verification instructions. A direct enumeration of pairs of full matchings checks 42 combinations of width and order without using frontier transitions. A second coordinate scan decodes every matching and checks all \(209\,295\,260\) inserted pairs and \(552\,320\,023\) permitted splices at width 32; it also checks the \(209\,295\,261\) blocked splices where the neighboring ends were already paired. Another program reads the saved vector and computes both extrema directly with its own indexing and transfer code. For the two shifted vectors, \(A^2v\le 2^{60}{\bf1}\) bounds the unsigned 64-bit differences, and their cross products fit in 128 bits. Constructing the original round-300 width-32 witness took 15 minutes 49 seconds with a peak resident set of 8\,948\,480 KiB on an Intel i9-13980HX. At width 26 the fully labelled graph has 27\,088\,869 states reachable from and able to return to the root, as checked by separate forward and reverse searches. At widths 26 through 32 the first twelve unrestricted root counts agree through \(M_{12}=678390116\). The folder for the independent return calculation includes both normalizations. The bounds at distinct widths refer to different subsets of meanders; the largest minimum gives a one-sided assertion about \(\mu\). Computing an individual unknown \(M_n\), or proving a limit for \(M_{n+1}/M_n\), requires additional information.
+
+\section{An estimate at every order}\label{uniform}
+The length of an outer walk is unbounded. Its distance from the prescribed closing gap, however, is at most four in the sublanguage used above. We exploit this distinction to turn the growth witness into a lower bound on each \(M_n\).
+
+For each oriented top shift with destination \(j\), attach a separate copy of its permitted outer path. An opening takes the original source to gap \(a\) of this copy; add an edge from gap \(b\) to \(j\) for the double close. The ordinary edges remain. Let \(K\) be the resulting unit-site adjacency on the stored graph. For a completed return the first-return factors determine the single choice of terminal gap in every outer path. Thus its root-return coefficients are exactly those represented by \(\widetilde B\), including multiplicities at a reflected edge. Slit parity changes on every edge.
+
+Give the old odd vertices weight \(f=v\) and the old even ones \(f=\widetilde C v/s\), with \(s=\sqrt X\). In the copy whose adjacency is \(P_b\), put
+\[
+ f_k=[(sI-P_b)^{-1}]_{kb}f_j .
+\]
+The linear equations on this copy give \(Kf=sf\) there. At the old vertices, the effective operator at \(s\) dominates \(\widetilde C\), so \(Kf\ge sf\) by the even row definition and the odd witness inequality. Write \(V=\max v\). Each old even weight is at most \(4V/s\). Since a path vertex has at most two neighbours, \(\|(sI-P_b)^{-1}\|_\infty\le1/(s-2)\). The inequality \(s>1+\sqrt5\), checked already by \(X>11\), implies that all auxiliary weights are at most \(V\).
+
+Each old odd state reaches the root in 30 ordinary sites. From an old even state, one legal shift and those 30 sites suffice. From an auxiliary state it takes at most four shifts and one close to reach its old destination. Thus from each odd state the root is reachable in an even number of sites at most 36. A two-step shift and its reverse at the root pad such a path to exactly 36. For \(n\ge19\) it follows that
+\[
+ M_n\ge(K^{2n-2})_{oo}\ge (K^{2n-38}f)_o/V
+       \ge (v_o/V)\,X^{n-19}.
+\]
+The integer witness and the small-order inequality \(M_n\ge1\) give the uniform estimate \(M_n\ge2^{-\prefbits}X^n\) for all \(n\ge1\). The supplement verifies \(2^{\prefbits}v_o\ge V X^{19}\) and \(2^{\prefbits}\ge X^{18}\) by integer comparisons.
+
+
+\section{A prescribed relative error at every order}
+
+\begin{theorem}\label{accuracy}
+For any \(n\ge1\) and rational \(0<\epsilon<1\), one can deterministically compute an integer \(H\) satisfying
+\[
+      (1-\epsilon)M_n\le H\le M_n
+\]
+in \(O^*(2^{14n/25}\epsilon^{-3/2})\) bit operations and bits of memory. Polynomial factors in \(n\) and the input bit length are suppressed.
+\end{theorem}
+\begin{proof}
+Within a factor, match brackets separately on each bank, leaving unmatched ends free. A cycle in the union of the internal pairs persists in every extension: each of its sites already has both incident edges. This includes a two-edge cycle when both banks pair the same sites. Such a factor cannot occupy a proper interval of a connected meander. Retain the 1\,207 cycle-containing factors of length at most ten with no proper cycle-containing subfactor. After each letter, reject a completed forbidden suffix; otherwise keep the longest suffix that is a proper prefix of a forbidden factor (possibly empty). This gives 2\,899 states. Weight each simultaneous opening by \(Q=159/100\), each simultaneous closing by \(1/Q\), and either shift by one. For its accepted-letter matrix \(D\), put \(s=(15900D)^{48}{\bf1}\). The integer checks give \(Ds\le r s\), \(r=3898274927/10^9\), and \(s_{\rm empty}^2<2(\min s)^2\). Hence the total weight of accepted words of length \(t\) is at most \((s_{\rm empty}/\min s)r^t\). The companion manuscript \cite{halves} gives the factor test and finite counting details.
+
+Consider a cut of height \(h\). Read each half from its outside end, taking the reversed bracket directions for the right half. Each half carries weight \(Q^{h/2}\). Dropping the requirement that their boundary pairings glue and summing over the \(2n-1\) cuts bounds the number of meanders omitted by width \(W\) by \(2(2n-1)r^{2n}/Q^W\). For \(n>5\) choose the least even width \(W\) satisfying
+\[
+ Q^W\ge 2^{\prefbits+1}(2n-1)(r^2/X)^n/\epsilon
+\]
+or use \(W=2n\) if this is smaller. Use full width also for \(n\le5\). Section~\ref{uniform} bounds the denominator at every order, so \(H=C_n(W)\) has the required relative accuracy.
+The exact comparisons \((r^2/X)^{25}<Q^{14}\) and \(Q^3>4\) give \(W\le 14n/25+\log_Q(n/\epsilon)+O(1)\) and \(\log_Q2<3/2\). The strip has \(O^*(2^W)\) states, with polynomial bit cost per transition and \(O(n)\)-bit counts. All width choices can be made by integer comparisons.
+
+\end{proof}
+
+\section{Finite constants and checks on the approximation}
+A single test of the positive-vector inequality also gives a lower bound at every finite order. For a witness \(w>0\) with \(Aw\ge\lambda w\), compute \(y\) and an integer \(E\) with \(2^E y\le A^b e_o\). If \(g=\min_i y_i/w_i>0\), positivity gives
+\[
+  M_n\ \ge\ 2^E\,g\,w_o\,\lambda^{n-1-b}\qquad(n\ge b+1).
+\]
+For \(n\le b\) one can instead use the root entries already recorded while constructing \(y\). This avoids fitting a prefactor to the known exact meander numbers. The supplement carries out both comparisons at width 32. For \(w=5Av-58v\) it gives \(w_o=107564340496998\), and at \(b=40\) the recorded exponent and minimum ratio are \(E=76\) and \(g=308588629582/89512920981\). Comparing the forty earlier root entries as well gives the uniform bounds, for all \(n\ge1\),
+\[
+ M_n>4.71986\cdot 10^{-7}\,(\wnum/\wden)^n,\qquad
+ M_n\ge 2^{-21}(11.68)^n.
+\]
+
+For the height calculation, counting restricted Dyck pairs by their two nonnegative heights and the avoidance state can give a sharper certificate at a particular order. With factors through length eight let \(B_n(W)\) count all such pairs staying within width \(W\). Every omitted connected meander belongs to the difference, so
+\[
+ 0\le M_n-C_n(W)\le B_n(2n)-B_n(W)\quad(n>4).
+\]
+A fixed automaton takes polynomial time in \(n\) for this difference. The companion computations bound the relative loss at \(W=32\) by \(0.015420\%\) for order 30, \(0.067896\%\) for order 32 and \(3.036153\%\) for order 39 (rounded up). The first two differences can be tested against their known exact counts. At order 39 the earlier independently certified interval in the companion data is narrower.
+
+\paragraph{Transporting a finite return estimate.}
+The smaller prefactor in Section~\ref{uniform} suffices for the complexity theorem. For finite orders one can use the published 80-site return certificate on the original strip. Let \(v^0\) be the normalized round-300 vector. The old certificate reads \(T^{80}e_o\ge 2^{76}h\,v^0\) on the original odd vertices, with \(h=308588629582/208548141853\). A comparison of all old and new normalized coordinates gives
+\[
+ g=\min_i v_i^0/v_i=79336080907/174270568865,\qquad
+ \gamma=2^{76}hg.
+\]
+Thus \(K^{80}e_o\ge\gamma f\) on the original odd vertices. Put \(w=474/4096\). Since \(C\le(1+w)T\), an ordinary step on the original vertices gives \(Tf\ge sf/(1+w)\). To enter that 80-site estimate, allow six ordinary sites from an old odd state. From an odd vertex of an auxiliary path at distance \(k-1\) from its exit, take the \(k\) sites of the shortest exit, with \(1\le k\le5\), then \(6-k\) ordinary sites. This also ends on the original odd class. Denoting the Green entry for this vertex and exit by \(G_{ib}(s)\), one obtains \(K^{86}e_o\ge\gamma\beta s^6 f\) on the odd class for any \(\beta\) bounded by \((1+w)^{-6}\) and by every
+\[
+           \big((1+w)^{6-k}s^kG_{ib}(s)\big)^{-1}.
+\]
+The series for \(s^kG_{ib}(s)\) is nonincreasing in \(s^2\). Evaluation at \(s^2=117/10<X\) bounds each reciprocal from below. The least resulting value, including the ordinary case, is
+\[
+ \beta=\frac{300444138341140529152}{640297620801287196875}.
+\]
+For \(n\ge44\), applying the remaining \(2n-88\) steps to this inequality gives \(M_n\ge\gamma\beta v_o X^{n-41}\), where \(v_o=245357193322677\). For \(1\le n\le43\) the original strip estimate above gives \(M_n>4.71986\cdot10^{-7}[(\wnum/\wden)/X]^{43}X^n\). Taking the smaller prefactor and rounding downward proves, at every order,
+\[
+                      M_n\ge 8.716941\cdot10^{-8}\, X^n.
+\]
+At one percent relative error, using the two strongest denominators in the width rule gives width 624 at order 1000, compared with 626 from the earlier certificate alone. At order 20000 the corresponding widths are 11270 and 11398. These are exact comparisons for sufficient widths; the meander numbers at those orders were not evaluated.
+
+
+
+\section*{Data and code availability}
+This revision and its verification materials are archived at \href{https://doi.org/10.5281/zenodo.24449944}{doi:10.5281/zenodo.24449944}. The \href{https://doi.org/10.5281/zenodo.24448957}{first archived version} includes the original width-32 comparison and the companion paper. The \href{https://github.com/Kimargin8/meander-growth-bound}{project repository} provides versioned releases.
+
+\section*{Declaration of generative AI use}
+The author used OpenAI ChatGPT and Codex to explore mathematical arguments, develop and test the verification programs, and draft and revise the text. The supplement contains the programs and integer verification records needed to reconstruct and check the witnesses.
+
+\begin{thebibliography}{9}\small
+\bibitem{halves} I.~Argunov, \emph{Shortest and near-shortest halves of closed plane meanders}, companion manuscript (2026), sections on simultaneous cuts and approximation.
+\bibitem{ap} M.~H. Albert and M.~S. Paterson, \emph{Bounds for the growth rate of meander numbers}, J. Combin. Theory Ser. A \textbf{112} (2005), 250--262.
+\href{https://doi.org/10.1016/j.jcta.2005.02.006}{Journal article}.
+\bibitem{bacher} R. Bacher, \emph{Meander algebras}, Institut Fourier.
+\href{https://www-fourier.univ-grenoble-alpes.fr/sites/default/files/ref_478.pdf}{Author's manuscript}.
+\bibitem{bfw} J.~Borga, V.~F\'eray and P.~Winkler, \emph{Permutons} (2026).
+\href{https://arxiv.org/abs/2611.12104}{arXiv:2611.12104}.
+\bibitem{caroppo} S.~Caroppo, G.~Da Lozzo, G.~Di Battista and J.~Vihrovs, \emph{Faster planar graph algorithms for connectivity problems via meanders} (2026).
+\href{https://arxiv.org/abs/2610.11944}{arXiv:2610.11944}.
+\bibitem{jensen} I.~Jensen, \emph{A transfer matrix approach to the enumeration of plane meanders}, J. Phys. A (2000).
+\href{https://doi.org/10.1088/0305-4470/33/34/301}{Journal article}.
+\end{thebibliography}
+\end{document}

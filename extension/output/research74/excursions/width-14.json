@@ -1,0 +1,188 @@
+{
+  "width": 14,
+  "outside_width": 16,
+  "models": {
+    "base": {
+      "site_numerators": [
+        319553683,
+        319553686
+      ],
+      "site_denominator": 100000000,
+      "strict_scaled_slack": [
+        "665150090003",
+        "1066848960874"
+      ],
+      "order_interval": [
+        "102114556318864489/10000000000000000",
+        "25528639559046649/2500000000000000"
+      ],
+      "order_approx": 10.2114557054
+    },
+    "short3": {
+      "site_numerators": [
+        322021866,
+        322021869
+      ],
+      "site_denominator": 100000000,
+      "strict_scaled_slack": [
+        "203767099470110518918551958520",
+        "142755925438299517763240657545"
+      ],
+      "order_interval": [
+        "25924520545530489/2500000000000000",
+        "103698084114253161/10000000000000000"
+      ],
+      "order_approx": 10.3698083318,
+      "gain_fraction_interval": [
+        "1583523945935360/3514948261879893",
+        "1583527795388672/3514948229160411"
+      ],
+      "gain_percent_approx": 45.051186
+    },
+    "short4": {
+      "site_numerators": [
+        322647855,
+        322647858
+      ],
+      "site_denominator": 100000000,
+      "strict_scaled_slack": [
+        "48624089607406824053104517274946333125",
+        "85078556734223795381754559172465725872"
+      ],
+      "order_interval": [
+        "4164065533444041/400000000000000",
+        "26025410067997041/2500000000000000"
+      ],
+      "order_approx": 10.410163904,
+      "gain_fraction_interval": [
+        "104583163153391/184997276941047",
+        "1987083953123675/3514948229160411"
+      ],
+      "gain_percent_approx": 56.532327
+    },
+    "short5": {
+      "site_numerators": [
+        323778129,
+        323778132
+      ],
+      "site_denominator": 100000000,
+      "strict_scaled_slack": [
+        "39551049201832073709316684790108377590102205099",
+        "20497761108740170307988357184008308265503187968"
+      ],
+      "order_interval": [
+        "104832276818740641/10000000000000000",
+        "6552017422588089/625000000000000"
+      ],
+      "order_approx": 10.4832278098,
+      "gain_fraction_interval": [
+        "2717718582554045/3514948261879893",
+        "2717722442544935/3514948229160411"
+      ],
+      "gain_percent_approx": 77.318934
+    },
+    "short6": {
+      "site_numerators": [
+        324101582,
+        324101585
+      ],
+      "site_denominator": 100000000,
+      "strict_scaled_slack": [
+        "9871186775791705441633579245366612335365872263741115264",
+        "11174176752453764137397188827676692405753106063463531250"
+      ],
+      "order_interval": [
+        "26260458863725681/2500000000000000",
+        "4201673495980489/400000000000000"
+      ],
+      "order_approx": 10.5041836367,
+      "gain_fraction_interval": [
+        "33646864582944/40401704159539",
+        "975760360215912/1171649409720137"
+      ],
+      "gain_percent_approx": 83.280861
+    },
+    "full": {
+      "site_numerators": [
+        325006930,
+        325006933
+      ],
+      "site_denominator": 100000000,
+      "strict_scaled_slack": [
+        "390437620550",
+        "382335815545"
+      ],
+      "order_interval": [
+        "1056295045480249/100000000000000",
+        "105629506498066489/10000000000000000"
+      ],
+      "order_approx": 10.5629505532
+    }
+  },
+  "edge_counts_by_length": {
+    "1": {
+      "nonzero": 23860,
+      "words": 23860
+    },
+    "3": {
+      "nonzero": 12012,
+      "words": 12012
+    },
+    "4": {
+      "nonzero": 7722,
+      "words": 7722
+    },
+    "5": {
+      "nonzero": 19140,
+      "words": 43164
+    },
+    "6": {
+      "nonzero": 14256,
+      "words": 37422
+    }
+  },
+  "exact_coefficient_csr_bytes": {
+    "1": 226032,
+    "3": 131248,
+    "4": 96928,
+    "5": 188272,
+    "6": 149200
+  },
+  "single_sweep": {
+    "base": {
+      "states": 8787,
+      "nnz": 23860,
+      "csr_bytes_float64_int32": 321472,
+      "two_vector_bytes": 140592,
+      "matvec_median_us": 25.484
+    },
+    "short6": {
+      "states": 8787,
+      "nnz": 45244,
+      "csr_bytes_float64_int32": 578080,
+      "two_vector_bytes": 140592,
+      "matvec_median_us": 38.842
+    },
+    "full": {
+      "states": 33097,
+      "nnz": 91070,
+      "csr_bytes_float64_int32": 1225232,
+      "two_vector_bytes": 529552,
+      "matvec_median_us": 110.659
+    }
+  },
+  "build_seconds": {
+    "inner_and_short_matrices": 0.1807,
+    "full_matrix": 0.1113
+  },
+  "total_process_seconds": 0.956,
+  "source_sha256": "6c18254db9e9f86a8c0aa0a5ddba42b7d9bbe51b819ca995090bd8a4e5cb32e3",
+  "witness_sha256": "0fb2f9d4685e8e304bf7191af4f00064c0123e54a1d97b775294ed82edfbfc15",
+  "environment": {
+    "python": "3.13.5",
+    "scipy": "1.17.1",
+    "numpy": "2.4.3",
+    "platform": "win32",
+    "numeric_threads": 1
+  }
+}

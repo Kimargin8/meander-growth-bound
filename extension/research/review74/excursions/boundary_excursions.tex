@@ -1,0 +1,111 @@
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,booktabs,microtype}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Short boundary excursions improve a meander growth bound},pdfauthor={Iaroslav Argunov}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newcommand{\xstar}{x_*}
+\newcommand{\numx}{5660040998411745}
+\newcommand{\denx}{483083866680971}
+\title{\bfseries Short boundary excursions improve a meander growth bound}
+\author{Iaroslav Argunov\\{\small Independent Researcher, Oakland, California, USA}}
+\date{November 22, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Let \(M_n\) count pairs of noncrossing perfect matchings on \(2n\) ordered sites whose union is one cycle. We prove that \(\lim M_n^{1/n}>11.7164769697\). The certificate uses the states of the width-32 transfer and allows selected excursions to width 34. Each excursion induces an existing transition at the boundary. Comparing generating functions absorbs three excursion lengths into one rational weight. This extends the earlier width-32 lower bound and exceeds the certified upper bound for that strip. A finite lower estimate gives a deterministic relative approximation in \(O^*(2^{9n/16}\epsilon^{-3/2})\) bit operations.
+\end{abstract}
+
+\section{First returns to a strip}
+Let \(\mu=\lim_{n\to\infty}M_n^{1/n}\), with limit existence as in Albert and Paterson \cite{ap}. The two banks are labelled. In Jensen's transfer \cite{jensen} a vertical cut leaves an even number of exposed ends, paired by the paths on its scanned side. Their boundary order and the number \(u\) of upper ends specify the slit. The first site opens a pair and reaches the root \(o\); the final site closes the path in state \(o\). An interior transition may open two ends, splice two ends belonging to different paths, or shift the slit one position by closing on one bank and opening on the other.
+
+Fix an even \(W\ge2\). Write \(T\) for the single-site matrix inside the strip of at most \(W\) exposed ends and \(S\) for those single-site shifts whose source has exactly \(W\) ends. Source states index the rows. At width \(W\) we now permit a double opening and a later double close. Between them, constrain the width to \(W+2\). Interior steps of this excursion can only shift the slit on the unchanged outside pairing. For a width-\(W\) shift from \(u\) to \(u+d\), \(d\in\{-1,1\}\), retain excursions that go from outside gap \(u+1\) to outside gap \(u+1+d\) before the final close. The close restores the inner pairing: it splices one new end to the neighbouring old end, and the other new end takes the old end's place and partner. The resulting gap is \(u+d\).
+
+\newpage
+\section{Three excursion lengths}
+The adjacent outside gaps for a legal shift are internal vertices of the path \(0,\ldots,W+2\). Choose a five-vertex subpath on which their edge is \(1\text{--}2\) or \(2\text{--}3\) in local coordinates \(0,\ldots,4\). This is possible even at \(W=2\): each edge has an exterior neighbour on either side, and at least one side can supply a fifth vertex. Make just one such choice per directed shift. On the odd vertices \(1,3\), the two-step matrix of the subpath is
+\[
+ H=\begin{pmatrix}2&1\\1&2\end{pmatrix}.
+\]
+Both vertices are adjacent to 2. Thus \(H^k(1,1)^{\top}=3^k(1,1)^{\top}\); reversal covers walks starting at 2. For \(k=0,1,2\) there are \(1,3,9\) outside walks, giving excursions of lengths \(3,5,7\), including the opening and closing sites.
+
+\begin{lemma}
+For \(0<x\le12\) and \(z=x^{-1/2}\), the first-return matrix for these choices is
+\[
+ B(z)=zT+(z^3+3z^5+9z^7)S\ \ge\ zC,\qquad C=T+\tfrac7{64}S .
+\]
+\end{lemma}
+\noindent\textit{Proof.}
+The extra coefficient after removing \(z\) is \(x^{-1}+3x^{-2}+9x^{-3}\), decreasing in \(x>0\) and equal to \(7/64\) at 12. Every allowed labelled word has a unique division into single steps inside the strip and first returns from outside. On a return the displacement specifies the shift direction. Distinct walks in the chosen subpath spell distinct site words. This proves the formula with the stated multiplicities. \hfill\(\square\)
+
+\begin{theorem}
+The ordinary meandric growth constant satisfies
+\[
+                  \mu \ \ge\ \xstar=\frac{\numx}{\denx}>11.7164769697.
+\]
+\end{theorem}
+\noindent\textit{Proof.}
+At \(W=32\), let \(\widetilde C\) be the stored matrix under bank exchange \cite[Sec.~3]{prior} and \(A=\widetilde C^2|_{u\text{ odd}}\). Bank exchange preserves the shifts in \(S\). Therefore all root returns for \(C\) and \(\widetilde C\) agree, by induction on the number of steps from the invariant root indicator. For the integer vector checked below, \(v>0\) and \(Av\ge\xstar v\). All stored odd states return to \(o\) in 30 ordinary single steps \cite{prior}, so \(A^{15}e_o\ge{\bf1}\). For every \(m\ge0\) this gives
+\[
+  (C^{2m+30})_{oo}=(A^{m+15})_{oo}
+           \ge \xstar^m v_o/\max_i v_i.
+\]
+Take \(z=\xstar^{-1/2}\), noting \(\xstar<12\). By the lemma, the series \(\sum_j (B(z)^j)_{oo}\) diverges, since its terms with \(j=2m+30\) are bounded below by a positive constant. Adding the first and last sites embeds these distinct words in the connected meanders, so \(\sum_{n\ge1}M_nz^{2n}\) diverges as well. The root test gives the claim. \hfill\(\square\)
+
+\newpage
+\section{Integer certificate and finite checks}
+The stored width-32 transfer has 386\,058\,577 odd cells and 424\,317\,073 even cells. To apply \(C\) to a nonnegative integer vector, sum the legal shifts, giving \(s\). On the boundary add \(\lfloor 7s/64\rfloor\), then add the ordinary splice if allowed. All other rows use the ordinary sum. Write \(F\) for this downward-rounded operation. Monotonicity and \(F(y)\le\widetilde C y\) ensure
+\[
+                F(F(v))\le \widetilde C^2 v .
+\]
+From the round-300 checkpoint of \cite{prior}, 60 further rounds give a positive integer vector, rescaled by right shifts between rounds. At round 360 its largest coordinate is \(2\,503\,528\,741\,167\,049\) and its root entry is \(231\,407\,605\,089\,383\). A separate program reconstructs the matching transitions from the saved vector. Both scans find
+\[
+                 \min_{i:\,u_i\ {\rm odd}}\frac{F(F(v))_i}{v_i}
+                        =\frac{\numx}{\denx}.
+\]
+For the test, coordinates of \(v\) are at most \(2^{52}\). The row sum of \(C\) is at most four: a boundary row has at most two shifts and one splice. Hence the two sweeps produce values at most \(2^{56}\); \(7s\) fits in unsigned 64 bits at either sweep. Cross multiplication fits in unsigned 128 bits. The earlier width-32 strip alone has growth constant at most \(15264493432827/1305926315603<11.688634\) \cite{prior}.
+
+In a separate finite comparison we include \emph{all} first returns from width \(W+2\) of lengths at most six, with every possible return gap. Column three is the fraction of the per-order growth increase from \(W\) to \(W+2\) recovered in this model. Column two uses the constant weight \(7/64\) on the old shift addresses. Each entry is shown to the nearest tenth of a percentage point. Integer vector comparisons bracket all the underlying growth rates.
+\begin{center}
+\begin{tabular}{rrr}\toprule
+\(W\)&Constant-weight comparison& All first returns through length 6\\\midrule
+8 &43.8\%&82.7\%\\
+10&47.6\%&83.0\%\\
+12&50.4\%&83.2\%\\
+14&52.5\%&83.3\%\\\bottomrule
+\end{tabular}
+\end{center}
+Keeping every walk on the chosen five-vertex subpaths gives the exact extra term \(z^3S/(1-3z^2)\) for that sublanguage when \(3z^2<1\). The finite polynomial already proves the theorem.
+
+
+\newpage
+\section{A prescribed relative error at every order}
+The same witness yields a finite denominator. Put \(s=\sqrt{\xstar}\) and \(V=\max v\). Expand each excursion word into a private path with one edge per site in the stored graph. Let \(P\) be its single-site matrix, including the ordinary edges. Its root-return series counts the physically allowed words: in each length the return multiplicities \(1,3,9\) are the same for reflected shifts, and the folded and physical first-return polynomials agree on invariant vectors. The original slit parity extends to the auxiliary nodes, changing at every step.
+
+Give each original odd node its weight \(f=v\); on the original even nodes put \(f=\widetilde C v/s\), using the even rows and odd columns. An auxiliary node with \(k\) steps to its original destination \(j\) has weight \(f_j/s^k\). Along the private paths \(Pf=sf\). At an original node, summing its outgoing contributions gives \(s\widetilde B(1/s)f\) on the original coordinates, where \(\widetilde B\) denotes the stored first-return matrix. The lemma and \(Av\ge s^2v\) therefore give \(Pf\ge sf\) everywhere.
+
+The maximum of \(f\) over odd nodes is \(V\). For an odd auxiliary node and even \(k\), its destination is odd and \(f_j\le V\). For odd \(k\ge1\), the destination is even with \(f_j\le4V/s\), so \(f_j/s^k\le4V/s^2<V\). Every original odd node reaches the root in 30 steps; from an original even node one legal shift followed by 30 steps suffices. An odd auxiliary node takes at most six steps to its destination. If \(k\) is odd then \(k\le5\), and its destination is even. Thus every odd node reaches \(o\) in at most 36 steps of even total length. Padding by ordinary two-step returns at \(o\) gives \((P^{36}e_o)_i\ge1\) on the odd class. For \(n\ge19\),
+\[
+ M_n\ \ge\ (P^{2n-2})_{oo}
+     \ \ge\ \frac{(P^{2n-38}f)_o}{V}
+     \ \ge\ \frac{231407605089383}{2503528741167049}\,\xstar^{n-19}.
+\]
+Direct integer comparison gives \(2^{71}v_o>V\xstar^{19}\) and \(2^{71}>\xstar^{18}\). Since \(M_n\ge1\), we have \(M_n\ge2^{-71}\xstar^n\) for every \(n\ge1\).
+
+\begin{theorem}
+Given \(n\ge1\) and rational \(0<\epsilon<1\), a deterministic algorithm returns an integer \(H\) with \((1-\epsilon)M_n\le H\le M_n\) in \(O^*(2^{9n/16}\epsilon^{-3/2})\) bit operations and bits of memory.
+\end{theorem}
+\noindent\textit{Proof.}
+Let \(Q=159/100\), \(r=3898274927/10^9\). The height estimate of \cite[Sec.~5]{prior} bounds the number omitted by width \(w\) by \(2(2n-1)r^{2n}Q^{-w}\). Choose the smallest even \(w\) for which \(Q^w\ge 2^{72}(2n-1)(r^2/\xstar)^n/\epsilon\), capped at the full width \(2n\). The confined count \(H\) has the required accuracy. Integer comparisons give \((r^2/\xstar)^{16}<Q^9\) and \(Q^3>4\). Hence \(w\le9n/16+\log_Q(n/\epsilon)+O(1)\). There are \(O^*(2^w)\) strip states, transitions have polynomial cost, and \(\log_Q2<3/2\). The suppressed factors are polynomial in \(n\) and the input bit length. \hfill\(\square\)
+
+\begin{thebibliography}{9}\small
+\bibitem{ap} M.\ H.\ Albert and M.\ S.\ Paterson, Bounds for the growth rate of meander numbers, \emph{J. Combin. Theory Ser. A} \textbf{112} (2005), 250--262.
+\href{https://doi.org/10.1016/j.jcta.2005.02.006}{doi:10.1016/j.jcta.2005.02.006}.
+\bibitem{jensen} I.\ Jensen, A transfer matrix approach to the enumeration of plane meanders, \emph{J. Phys. A} \textbf{33} (2000).
+\href{https://doi.org/10.1088/0305-4470/33/34/301}{doi:10.1088/0305-4470/33/34/301}.
+\bibitem{prior} I.\ Argunov, \emph{A certified lower bound for the growth constant of plane meanders}, preprint and verification materials (2026).
+\href{https://doi.org/10.5281/zenodo.24448957}{doi:10.5281/zenodo.24448957}.
+\end{thebibliography}
+\end{document}

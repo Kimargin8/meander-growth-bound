@@ -1,0 +1,188 @@
+{
+  "width": 8,
+  "outside_width": 10,
+  "models": {
+    "base": {
+      "site_numerators": [
+        285845467,
+        285845470
+      ],
+      "site_denominator": 100000000,
+      "strict_scaled_slack": [
+        "16960292911092",
+        "8783479748280"
+      ],
+      "order_interval": [
+        "81707631004448089/10000000000000000",
+        "817076327195209/100000000000000"
+      ],
+      "order_approx": 8.1707632134
+    },
+    "short3": {
+      "site_numerators": [
+        293312047,
+        293312050
+      ],
+      "site_denominator": 100000000,
+      "strict_scaled_slack": [
+        "2555502081655028516965497832298",
+        "1404402939187297794080769250000"
+      ],
+      "order_interval": [
+        "86031956915330209/10000000000000000",
+        "34412783470081/4000000000000"
+      ],
+      "order_approx": 8.6031958051,
+      "gain_fraction_interval": [
+        "1441441398603103/3070467721107332",
+        "1441442556918137/3070467689742600"
+      ],
+      "gain_percent_approx": 46.945355
+    },
+    "short4": {
+      "site_numerators": [
+        294887539,
+        294887542
+      ],
+      "site_denominator": 100000000,
+      "strict_scaled_slack": [
+        "532627280578355912577900462000189779907",
+        "783492890303783085833064901997884832208"
+      ],
+      "order_interval": [
+        "86958660657476521/10000000000000000",
+        "21739665606700441/2500000000000000"
+      ],
+      "order_approx": 8.6958661374,
+      "gain_fraction_interval": [
+        "1750342645985207/3070467721107332",
+        "3333988204669/5848509885224"
+      ],
+      "gain_percent_approx": 57.005753
+    },
+    "short5": {
+      "site_numerators": [
+        298084022,
+        298084025
+      ],
+      "site_denominator": 100000000,
+      "strict_scaled_slack": [
+        "194105723365246739036624386248945132901957936736",
+        "348594188667530931478060938408809078971943359375"
+      ],
+      "order_interval": [
+        "22213521042924121/2500000000000000",
+        "142166537536321/16000000000000"
+      ],
+      "order_approx": 8.8854084811,
+      "gain_fraction_interval": [
+        "19210891000472/24761836460543",
+        "297768956489689/383808461217825"
+      ],
+      "gain_percent_approx": 77.582678
+    },
+    "short6": {
+      "site_numerators": [
+        298870784,
+        298870787
+      ],
+      "site_denominator": 100000000,
+      "strict_scaled_slack": [
+        "82900632798357600554566776401768469141692776384632455168",
+        "88454404528374230584604514582274266420030072710991476443"
+      ],
+      "order_interval": [
+        "1362972191296/152587890625",
+        "89323747321999369/10000000000000000"
+      ],
+      "order_approx": 8.9323746396,
+      "gain_fraction_interval": [
+        "27594611627731/33374649142471",
+        "9066805139942/10965956034795"
+      ],
+      "gain_percent_approx": 82.681373
+    },
+    "full": {
+      "site_numerators": [
+        301527833,
+        301527836
+      ],
+      "site_denominator": 100000000,
+      "strict_scaled_slack": [
+        "5215449566235",
+        "4717773382380"
+      ],
+      "order_interval": [
+        "90919034073675889/10000000000000000",
+        "5682439742677681/625000000000000"
+      ],
+      "order_approx": 9.0919035024
+    }
+  },
+  "edge_counts_by_length": {
+    "1": {
+      "nonzero": 433,
+      "words": 433
+    },
+    "3": {
+      "nonzero": 224,
+      "words": 224
+    },
+    "4": {
+      "nonzero": 126,
+      "words": 126
+    },
+    "5": {
+      "nonzero": 332,
+      "words": 780
+    },
+    "6": {
+      "nonzero": 216,
+      "words": 594
+    }
+  },
+  "exact_coefficient_csr_bytes": {
+    "1": 4164,
+    "3": 2492,
+    "4": 1708,
+    "5": 3356,
+    "6": 2428
+  },
+  "single_sweep": {
+    "base": {
+      "states": 174,
+      "nnz": 433,
+      "csr_bytes_float64_int32": 5896,
+      "two_vector_bytes": 2784,
+      "matvec_median_us": 2.413
+    },
+    "short6": {
+      "states": 174,
+      "nnz": 757,
+      "csr_bytes_float64_int32": 9784,
+      "two_vector_bytes": 2784,
+      "matvec_median_us": 2.542
+    },
+    "full": {
+      "states": 636,
+      "nnz": 1651,
+      "csr_bytes_float64_int32": 22360,
+      "two_vector_bytes": 10176,
+      "matvec_median_us": 3.363
+    }
+  },
+  "build_seconds": {
+    "inner_and_short_matrices": 0.0043,
+    "full_matrix": 0.0018
+  },
+  "total_process_seconds": 0.0572,
+  "source_sha256": "6c18254db9e9f86a8c0aa0a5ddba42b7d9bbe51b819ca995090bd8a4e5cb32e3",
+  "witness_sha256": "44abac410b6a3015e2923bfbc4f2007854a547e7465b2d93f2c96c46c2cbd44d",
+  "environment": {
+    "python": "3.13.5",
+    "scipy": "1.17.1",
+    "numpy": "2.4.3",
+    "platform": "win32",
+    "numeric_threads": 1
+  }
+}

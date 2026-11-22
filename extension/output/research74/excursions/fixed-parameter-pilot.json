@@ -1,0 +1,10 @@
+{
+  "width": 14,
+  "model": "short6-compact",
+  "start_process_peak_bytes": 60538880,
+  "after_build_peak_bytes": 67592192,
+  "total_process_peak_bytes": 83034112,
+  "build_seconds": 0.193923,
+  "certify_seconds": 0.349255,
+  "site_numerators": [324101582, 324101585]
+}

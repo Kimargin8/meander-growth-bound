@@ -1,0 +1,76 @@
+{
+  "parameter": "7/2 per site",
+  "python": "3.13.5",
+  "rows": [
+    {
+      "width": 2,
+      "outer_matchings": 2,
+      "exterior_cells": 10,
+      "returned_inner_rows": 3,
+      "represented_durations": "all",
+      "denominator": 11655,
+      "numerators_sha256": "af09d7d39dc2459d701ac6fad4c23e8e44cde46072930588f7bd9f96472ef984",
+      "streaming_apply_and_residual_check_seconds": 6e-05
+    },
+    {
+      "width": 4,
+      "outer_matchings": 5,
+      "exterior_cells": 35,
+      "returned_inner_rows": 10,
+      "represented_durations": "all",
+      "denominator": 473263,
+      "numerators_sha256": "9c76aef8f498b2a178e4b697384332d500fb7edaa817b5668ab2f852e043e966",
+      "streaming_apply_and_residual_check_seconds": 0.000108
+    },
+    {
+      "width": 6,
+      "outer_matchings": 14,
+      "exterior_cells": 126,
+      "returned_inner_rows": 35,
+      "represented_durations": "all",
+      "denominator": 19217303,
+      "numerators_sha256": "face4f0a96fc03dd3ec8a7d41844c3cbd55e0629bcf11ec13c76e7940445a01d",
+      "streaming_apply_and_residual_check_seconds": 0.000258
+    },
+    {
+      "width": 8,
+      "outer_matchings": 42,
+      "exterior_cells": 462,
+      "returned_inner_rows": 126,
+      "represented_durations": "all",
+      "denominator": 780337215,
+      "numerators_sha256": "fc6d6724280eb601d3985cfd6daccb8da8a0190f8d98d8de0727d9e65c8af839",
+      "streaming_apply_and_residual_check_seconds": 0.000923
+    },
+    {
+      "width": 10,
+      "outer_matchings": 132,
+      "exterior_cells": 1716,
+      "returned_inner_rows": 462,
+      "represented_durations": "all",
+      "denominator": 31686348967,
+      "numerators_sha256": "5ea0d9afb32d62cfec0a47173e28164ba93c2e393ca53b5369586ab7eb3daecd",
+      "streaming_apply_and_residual_check_seconds": 0.003469
+    },
+    {
+      "width": 12,
+      "outer_matchings": 429,
+      "exterior_cells": 6435,
+      "returned_inner_rows": 1716,
+      "represented_durations": "all",
+      "denominator": 1286654912207,
+      "numerators_sha256": "0316fd35ce1213d04c5659d5d1c2e25f1abdeaa775799693d6a993018923699d",
+      "streaming_apply_and_residual_check_seconds": 0.010381
+    },
+    {
+      "width": 14,
+      "outer_matchings": 1430,
+      "exterior_cells": 24310,
+      "returned_inner_rows": 6435,
+      "represented_durations": "all",
+      "denominator": 52245869817015,
+      "numerators_sha256": "d5304d38eb50077013da2123e00c5757c303c8275acf812cde216bff2e90ca6a",
+      "streaming_apply_and_residual_check_seconds": 0.049713
+    }
+  ]
+}
