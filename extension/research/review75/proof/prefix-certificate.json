@@ -1,0 +1,33 @@
+{
+  "squared_parameter": "12401248195833/1058038773811",
+  "root": 245357193322677,
+  "maximum_odd": 2667940370280775,
+  "all_order_power_of_two": -64,
+  "projected_completion": 32,
+  "q": "159/100",
+  "r": "3898274927/1000000000",
+  "exponent_14_over_25_supported": true,
+  "enumeration": [
+    {
+      "width": 2,
+      "steps": 8,
+      "distinct_prefixes_checked": 1362,
+      "ambiguous_prefixes": 437,
+      "annotated_odd_outside_ends": 928
+    },
+    {
+      "width": 4,
+      "steps": 8,
+      "distinct_prefixes_checked": 4329,
+      "ambiguous_prefixes": 1753,
+      "annotated_odd_outside_ends": 2828
+    },
+    {
+      "width": 6,
+      "steps": 8,
+      "distinct_prefixes_checked": 7296,
+      "ambiguous_prefixes": 2111,
+      "annotated_odd_outside_ends": 3340
+    }
+  ]
+}
