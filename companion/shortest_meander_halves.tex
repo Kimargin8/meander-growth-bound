@@ -1,0 +1,265 @@
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=1.0in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,booktabs,microtype}
+\usepackage[hidelinks]{hyperref}
+\newenvironment{proof}{\par\noindent\textit{Proof.} }{\unskip\nobreak\hfill\penalty50\hskip.5em\null\nobreak\hfill\hbox{$\square$}\par}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\mH}{\mathcal H}
+\newcommand{\mS}{\mathcal S}
+\hypersetup{pdftitle={Shortest and near-shortest halves of closed plane meanders},pdfauthor={Iaroslav Argunov}}
+\title{\bfseries Shortest and near-shortest halves\\of closed plane meanders}
+\author{Iaroslav Argunov}
+\date{Research note for independent review \enspace$\cdot$\enspace November 22, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+For a prescribed connectivity at a vertical cut we count its shortest loop-free realizations by a product of binomial coefficients. We extend the construction to an exact polynomial-time algorithm per prescribed connectivity at any fixed excess. At length \(t\), halves of any given sublinear excess have exponential growth rate \(\sqrt5\). The union of the layers of excess at most \(t/100\) forms an exponentially small fraction of all loop-free halves. In a uniform connected closed meander, outside an exponentially rare set, every side of length at least \(n\) has excess above \(3/14\) of its length. Counting in a strip gives a deterministic approximation to \(M_n\) in \(O^*(2^{4n/7})\) bit operations with exponentially decreasing relative error. We give certified finite error bounds at orders 30, 32 and 39.
+\end{abstract}
+
+\section{The cut and its shortest realizations}
+Place ordered points on a horizontal line. Two noncrossing arch systems, one above and one below, meet at these points. A full closed meander is a pair whose union is one cycle. Cut across the line between two consecutive points. A half is an ordered pair of partial arch systems on one side of the cut with no closed component. Each of its paths joins two exposed ends. We distinguish the banks and their order; reflection and exchange of banks are allowed to change the object.
+
+Write \(a,b\) for the numbers of exposed upper and lower ends, \(\pi\) for their noncrossing pairing, and \(j\) for its number of opposite-bank pairs. Assume \(a+b>0\) is even and \(t\equiv a\equiv b\equiv j\pmod2\). A path joining opposite banks uses an odd number of points, at least one. A same-bank path uses a positive even number, at least two. Thus the shortest possible length is at least \(L=a+b-j\). Di Francesco, Guitter and Jacobsen already give the criterion \(t\ge L\), with the prescribed parity, in their Eq.~(3.1) and the text following it \cite{dfgj}. Here we count the realizations of equality.
+
+Read the two lists of exposed ends from the line outwards. The opposite-bank pairs occur in the same order in the two lists. They separate \(j+1\) gaps. In each gap the remaining ends on each bank form a Dyck matching. A primitive is a nonempty Dyck excursion with a single return to zero. Let \(p_i,q_i\) be the numbers of primitives on the two banks of gap \(i\).
+
+\begin{theorem}\label{mult}
+The number of physical halves of length \(L\) inducing this particular \(\pi\) is
+\[
+ m(\pi)=\prod_{i=0}^{j}\binom{p_i+q_i}{p_i}.
+\]
+\end{theorem}
+
+\newpage
+\begin{proof}
+Read the half from the cut towards its outside end. On either bank \(D\) pops an end from its stack and \(U\) opens a new arch. At equality every opposite-bank path is a single simultaneous pop, and every same-bank path consists of two old ends popped from their bank and joined by one temporary arch on the other bank. Consider a primitive of upper ends. From its first point to its last, the lower stack has at least one temporary end above its remaining old ends. Thus no old lower end can be popped during the primitive. Its lower letters are the uniquely specified Dyck word, while all its upper letters are pops. The lower-bank case follows on exchanging the banks. This gives an arbitrary shuffle of two ordered lists of whole primitives in each gap. The simultaneous pop then separates this shuffle from the next one. Conversely every such shuffle respects both stacks and induces \(\pi\). Its letters recover the shuffle uniquely.
+\end{proof}
+
+\section{What the multiplicity counts}
+Let \(C(x)=1+xC(x)^2\) have constant term one, and \(P(x)=x^2C(x^2)\). Mark the number of points by \(z\), the two numbers of exposed ends by \(u,v\), and the number of opposite-bank paths by \(w\). Include one empty object at length zero. The series for shortest physical halves and for their distinct types, respectively, are
+\begin{align}
+ \mH(z;u,v,w)&=\frac{1}{1-wzuv-P(zu)-P(zv)},\label{hist}\\
+ \mS(z;u,v,w)&=\frac{D_uD_v}{1-wzuv D_uD_v},\qquad D_u=C(z^2u^2),\quad D_v=C(z^2v^2).\label{type}
+\end{align}
+Indeed each physical half is a sequence of three kinds of pieces from the proof. For a type alone each gap consists of just one upper and one lower Dyck matching in their fixed bank orders. Formula \eqref{type} is consistent, grade by grade, with the two ballot factors in \cite[Eq.~(3.4)]{dfgj}.
+
+Specifying only the number of opposite-bank pairs gives
+\[
+ \mH(z;1,1,w)=\frac{\sqrt{1-4z^2}+wz}{1-(4+w^2)z^2},
+ \qquad [z^{2m+1}]\mH=w(4+w^2)^m .
+\]
+There are exactly \(5^m\) shortest physical halves of odd length \(2m+1\). For the uniform choice of such a half, \(j\) has distribution \(1+2\,\mathrm{Binomial}(m,1/5)\). At \(w=1\) the coefficients form OEIS A098615 \cite{oeis}. Assigning positive or negative excursions to the two banks and a horizontal step at height zero to an opposite-bank pair gives the signed bridge model in \cite[Table~3]{bkw}. These are established bridge numbers. The cut interpretation records the two banks and the number of realizations of each individual meander connectivity.
+
+Writing \(H_t=[z^t]\mH(z;1,1,1)\), one has \(H_t=\Theta((\sqrt5)^t)\) on both parities, by the explicit even and odd parts. The type series has a simple positive pole at \(r\) with \(rC(r^2)^2=1\), hence \(C(r^2)=1+r\). Its growth rate \(1/r=2.147899\ldots\) obeys \((1/r)^3=(1+1/r)^2\), the state growth constant of \cite[Eq.~(3.12)]{dfgj}. There are no competing poles of that modulus: equality in the triangle inequality for \(zC(z^2)^2=1\) forces \(z=r\).
+
+\newpage
+\section{Counting a given type away from its shortest length}
+Put \(d=(t-L)/2\). This measures pairs of points above the shortest length for the prescribed type. At \(d=0\) Theorem~\ref{mult} uses only the ordered matching. At \(d=1\), precisely one opposite-bank path has three points or one same-bank path has four. For arbitrary \(d\), the following algorithm also accounts for the interactions between the longer paths.
+
+\begin{theorem}\label{xp}
+For a prescribed pairing of \(N=a+b>0\) ends and fixed \(d\ge0\), the number of physical realizations of length \(L+2d\) can be computed exactly in polynomial time in \(N\). For \(d\ge1\) a bound on the arithmetic work is \(f(d)(N+1)^{9d+6}\) for some function \(f\). The bit lengths of the counts are polynomial in the input length and \(d\) when the diagram length is given in unary.
+\end{theorem}
+\begin{proof}
+Mark the paths longer than their individual minima. Their number \(s\) is at most \(d\), and they contain at most \(2s+2d\le4d\) points in total. Choose their \(s\) pairs in \(\pi\) and the composition of \(d\) into their positive excesses. Orient each path from its first exposed end in a fixed ordering. The bank of each of its edges is forced by alternation. Permute all its marked points and those of the other chosen paths in their joint order on the line. Discard intersecting marked edges on the same bank.
+
+Delete these entire paths, including their old ends. What remains is a shortest realization of the induced pairing. Its legal prefixes are described by the counts \(i,h\) of ordinary ends already popped in upper and lower order. Inside a primitive only its own bank advances. A through pair advances both. This gives a directed acyclic graph of at most \((N+1)^2\) vertices. Each vertex has at most three outgoing edges. All path counts \(W(A,B)\) follow by topological traversals in \(O((N+1)^4)\) additions.
+
+Choose a vertex of this graph at each of the at most \(4d\) marked positions, in chronological order, allowing repeats. It records the location of each marker even in the middle of a primitive. On either bank label each ordinary edge individually. At a marker the set of ordinary edges crossing its position depends only on \(i,h\): all earlier ordinary points are known by their popped ends. At an old marked end the same set is given by the fixed bank order of old ends, placed before the points on the line. A marked edge crosses an ordinary edge precisely when the latter belongs to the set at exactly one of its two endpoints. Reject the placement unless the sets agree for each marked edge. All crossings are now accounted for. Multiply the values of \(W\) for the successive intervals, including the first and last. Each original realization has one marked set, orientation, line order and sequence of positions, so summing gives exactly the desired count.
+
+There are \(O((N+1)^d)\) choices of marked pairs and at most \((N+1)^{8d}\) placements; compositions and permutations have size bounded solely in \(d\). The remaining graph operations and edge tests fit in \((N+1)^6\) arithmetic and bit-set operations. Intermediate path counts have logarithms \(O((N+d)\log(N+d+2))\), e.g. by bounding endpoint orders by factorials.
+\end{proof}
+For a central cut after \(n\) points, any geometry with \(\max(a,b)\ge n-2d\) has excess at most \(d\) on either side for every realizable type, since \(L\ge\max(a,b)\). The theorem prices one type. The number of types and the cost of pairing the two tables also enter a complete count.
+
+\newpage
+\section{The fraction of halves near the minimum}
+Let \(F_t\) count all loop-free physical halves of length \(t\) with their actual upper and lower words. Let \(F_{t,d}\) count those with excess exactly \(d\), allowing the connectivity to vary.
+
+\begin{theorem}\label{growth}
+For every sequence of nonnegative integers \(d=d(t)=o(t)\),
+\(\lim_{t\to\infty} F_{t,d}^{1/t}=\sqrt5\). Moreover,
+\[
+ \limsup_{t\to\infty}
+ \left(\frac{\sum_{0\le d\le t/100} F_{t,d}}{F_t}\right)^{1/t}
+ \le 0.931512 .
+\]
+\end{theorem}
+\begin{proof}
+Deleting all longer paths as in Theorem~\ref{xp} leaves a shortest half of length \(t-e\) with \(e\le4d\). For all \(d\le D\) jointly an injective record consists of this shorter pair of words, the \(e\) deleted positions in the original line order, and the upper and lower letters at each of these positions. These data reconstruct the two original words, hence the original half (use the orientation starting at the empty stacks). Thus
+\[
+ \sum_{d\le D} F_{t,d}
+ \le \sum_{0\le e\le\min(t,4D)} \binom{t}{e}4^e H_{t-e}.
+\]
+For \(D=o(t)\) the binomial factor and the number of records per position set contribute \(\exp(o(t))\). Conversely a fixed first point of any nonempty shortest half of length \(t-2d\) may be replaced by a chain through \(2d+1\) consecutive points. For one subdivision put the old upper attachment on the first point and the old lower attachment on the third, add a lower arc between the first two and an upper arc between the last two. This preserves planarity and the external pairing. Repeat at the first point. Contraction recovers the old half, giving \(F_{t,d}\ge H_{t-2d}\) whenever \(t-2d>0\).
+
+For the denominator, choose a positive integer \(k\). The caps of length \(2k-1\) consuming one old upper and one old lower end are in bijection with the \(M_k\) closed meanders: prepend a single point opening the two old ends. Each such cap consumes one old end from each bank and leaves no temporary edge. Start with \(q+r\) old ends on each bank. Each fixed-length cap leaves the deeper ends untouched. Concatenating \(q\) such caps and \(r\) simultaneous pops gives distinct halves whenever \(t=q(2k-1)+r\), \(0\le r<2k-1\). Hence \(\liminf F_t^{1/t}\ge M_k^{1/(2k-1)}\).
+
+For \(D=\lfloor t/100\rfloor\), put \(p=1/25\). The binomial entropy bound gives an upper exponential rate \(B=\sqrt5\,p^{-p}(1-p)^{-(1-p)}(4/\sqrt5)^p\): the exponent is increasing for \(0\le e/t\le p\). Using the complete known \(M_{32}=154967080111946539652848747626\) \cite{closed}, the resulting ratio is \(B/M_{32}^{1/63}=0.93151121\ldots\). Raising to a common power and clearing denominators gives an integer comparison; in particular \(B^{25}=4\cdot5^{12}25^{25}/24^{24}\).
+\end{proof}
+These bounds use the uniform measure on physical halves. Passing to complete diagrams introduces the multiplicities and compatibility of their opposite sides.
+
+\newpage
+\section{Uniform closed meanders}
+Let \(P_n\) denote uniform probability on the \(M_n\) connected closed meanders of order \(n\). At an interior cut let \(A=a+b\), the total number of ends exposed. The two sides have their own through counts \(j_1,j_2\) and excesses. Albert and Paterson \cite[Theorem~1.1]{ap} proved \(\mu=\lim M_n^{1/n}\ge11.380\). Their method also uses forbidden factors in the four-letter meander language. We mark the change in height and use their lower bound in the denominator.
+
+\begin{theorem}\label{height}
+The probability that there is an interior cut with \(A\ge0.627n\) has upper exponential rate below \(0.999665\), taking the \(n\)-th root. Consequently, outside this exceptional set, \emph{every} side of length \(\ell\ge n\) at \emph{every} interior cut has \(d>0.1865\ell\). The bounds hold simultaneously for every cyclic choice of the first point. At a central cut the event that at least one side has \(d\le n/100\) has upper exponential rate below \(0.689089\).
+\end{theorem}
+\begin{proof}
+Read each side from its empty end. An interior word of paired letters cannot contain a factor inducing a closed component among its own points. To detect such a component match the letters on each bank within the factor, ignoring unmatched pops, and trace the resulting edges. The internal edges persist regardless of the preceding stack. Retain minimal forbidden factors through length eight. There are \(1,2,14,116\) of lengths \(2,4,6,8\). Use their proper prefixes as states, initially the empty prefix. Reject a letter completing any forbidden suffix; otherwise keep the longest suffix which is a proper prefix. This gives 316 states. The transcript checks all \(87\,380\) words of lengths one through eight directly against the arc graph.
+
+Give \(UU,UD,DU,DD\) weights \(Q,1,1,1/Q\), with \(Q=17/10\). Let \(T\) be the nonnegative matrix for the allowed letters. With \(v=(170T)^{48}{\bf1}>0\), direct integer comparison in the supplement gives \(Tv\le \rho v\) for \(\rho=3.983308090\). The total marked mass for a side of length \(s\) is at most \(C\rho^s\), \(C=v_{\emptyset}/\min v\). The two sides at a given cut each have weight \(Q^{A/2}\). Dropping boundary matching and counting all automaton words bounds the number of full meanders with \(A\ge cn\) at that cut by \(C^2(\rho^2/Q^c)^n\). Taking the union over the \(2n-1\) cuts gives upper rate \(\rho^2/(\mu Q^c)\). Exact comparison gives the stated bound at \(c=0.627\), and \(<0.992792\) at \(c=0.64\). Since \(2d=\ell-A+j\), the first assertion follows. Rotating both matchings together is a bijection on closed meanders. A further union over the \(2n\) possible first points changes no exponential rate. Thus the number of road edges leaving any consecutive interval of river points is below \(0.627n\) outside the same exceptional set.
+
+For the central estimate choose \(0<s<1\). For fixed \(a,b\) the opposite half has at most \((s+1/s)^{2n}s^A\) pairs of words by the binomial theorem. By \eqref{hist}, the shortest halves weighted by \(s^A\) have upper exponential rate \(h=s\sqrt{4+s^2}\). Put \(D=\lfloor n/100\rfloor\). In deleting \(e\le4D\) points the total step increment \(K\) in the erased letters equals twice the number of erased paths, so \(K\ge e-2D\). For \(y>s\) the sum of \(s^K\) over possible erased letters is at most \((s/y)^{e-2D}(y+1/y)^{2e}\). Multiply by \(\binom ne h^{n-e}\), sum, and multiply by the opposite-side factor. At \(s^2=5/16,\ y^2=5/3\) the entropy bound increases up to \(p=e/n=1/25\), since \((1-p)(s/y)(y+1/y)^2/(ph)>1\) there. Substitution gives a numerator rate below \(7.841828909\). Division by \(11.380\) proves the claim for either side and all origins.
+\end{proof}
+The same exponential upper bounds apply under the companion paper's normalized centroid weight on full diagrams: its total is \(M_n\) and the weight of one diagram is at most \(2n\). This comparison does not equate diagram mass with the work of an implementation.
+
+\newpage
+\section{Reconstructing a closed count at a cut}
+Take \(0<t<2n\), \(R=2n-t\). In a geometry \((a,b)\ne(0,0)\) with the correct parity put \(S_\ell=\{\pi:L(\pi)\le \ell\}\). The reachability criterion follows also by repeated subdivision in the preceding proof. Let \(K\) have rows \(S_t\), columns \(S_R\), and entry one when the superposed pairings form one cycle. The empty geometry at an interior cut contributes zero to a connected closed meander. Let \(f_\pi,g_\rho\) be the actual populations of the two halves. Their contribution is \(f^\top K g\).
+
+Choose row and column index sets \(I,J\) with \(B=K[I,J]\) a nonsingular minor of size \(\mathrm{rank}_{\mathbb Q}K\). Put \(x=f^\top K[:,J]\), \(y=K[I,:]g\). Since the columns in \(J\) span all columns and their restrictions to \(I\) are independent, the contribution is \(x B^{-1}y\), interpreted as zero at rank zero. Choose one shortest representative for each selected type. Each entry of \(x\) counts closed meanders with that specific right cap. Its order is \((t+L(\rho))/2\le n\). The left cap gives the corresponding expression for \(y\). With a weight on the entire lower word, first keep the physical lower words on each side as tags, apply the same bilinear identity for each pair and then weight the concatenated original words. A synthetic cap carries no original centroid weight.
+
+Summing over all geometries yields \(M_n\). Some measurements attain order \(n\). At \(n=t=4,\ a=b=2\) the through and same-bank types have minimum lengths two and four, and actual populations four and two on both sides. Their matrix is the two-by-two exchange matrix, so the sector contributes \(16\). The minor retaining only strictly shorter types is zero. Thus an order-reducing recursion cannot be inferred from the rank identity alone. The auxiliary counts fix a particular cap; they are not values of \(M_k\) without boundary conditions.
+
+\paragraph{A missing measurement at every even centre.}
+At \(n=t=2k\ge4\) take \(a=2k-2,\ b=2\). On the circle of ends let \(A\) pair consecutive ends \(01,23,\ldots\), and let \(B\) be its one-site rotation. Then \(L(A)=n,\ L(B)=n-2\). The only noncrossing partner of \(B\) making a single cycle is \(A\). Indeed, collapse the \(k\) adjacent boundary pairs of \(B\) into vertices. The other matching would give a noncrossing Hamiltonian cycle on these cyclically ordered vertices. For \(k\ge3\) it must use their boundary edges: a diagonal separates the remaining vertices into two nonempty sides which the complementary path cannot visit without crossing it. Noncrossing fixes which end joins the next pair; at \(k=2\) direct inspection suffices. Thus the row of \(B\) vanishes against every strictly shorter cap, although it pairs with the physically present \(A\). This obstructs recovery of arbitrary half-populations from the shorter-cap linear measurements.
+
+\paragraph{Finite checks.}
+The independent programs in the supplement read the actual upper and lower words. Through length 11 they verify the minimum multiplicity for 4,161 types at their first occurrence and both marked series in 2,366 grades. The fixed-excess algorithm is checked against 13,987 pairs of words in 48 tests, including a 14-point type of multiplicity 49. On 12 complete cuts at orders 1 through 8 the rank-minor identity reproduces all 120 geometry contributions, both ordinary and centroid-weighted. Of these matrices 30 have rank strictly below both support sizes. The largest minor used has order 28. The large-order timing experiments in the companion note use a separate implementation.
+
+\newpage
+\section{Finite bounds at the computational cuts}
+At a designated cut we can bound the contribution of a small-excess layer without knowing the full meander number. Separate the exceptional paths into their own half and call its length \(e\), its exposed heights \(h,k\). Let \(E_{d,e,h,k}\) count the exceptional halves in which every path exceeds its own minimum. Let \(H_{m,a,b}\) count the shortest ordinary halves from \eqref{hist}, summing over through counts. The two projected halves and the positions of their letters determine the original half. Hence at heights \(u,v\) the designated-side population with \(d\le D\) is at most
+\[
+ U_{t,D}(u,v)=\sum_{d\le D}\ \sum_{e,h,k}
+ \binom{t}{e} E_{d,e,h,k} H_{t-e,u-h,v-k}.
+\]
+For \(d=1\) the only nonzero exceptional counts are two three-point through paths and three four-point paths for each same-bank orientation. For \(d=2\) the exceptional words have at most eight points and can be enumerated directly. Some shuffles violate planarity, so this construction gives an upper bound.
+
+Let \(G_t(u,v)\) now count pairs of ballot walks reaching the specified heights and avoiding the 133 forbidden factors in Theorem~\ref{height}. Keep the automaton state and both nonnegative heights after each letter. The numerator is at most
+\(\sum_{u,v}\min(U_{t,D}(u,v),G_t(u,v))G_{2n-t}(u,v)\).
+The denominator is the known \(M_n\) at orders 30 and 32. At order 39 we use \(M_{39}\ge M_{38}M_1=M_{38}\) \cite{ap,closed}. All entries below give upper percentages for ordinary closed meanders, rounded upwards.
+
+\begin{center}
+\begin{tabular}{rrr rrr}
+\toprule
+\(n\)& \(t\)& \(2n-t\)& \(d=0\) & \(d\le1\)& \(d\le2\)\\\midrule
+30&37&23& \(7.18\cdot10^{-11}\%\)& \(1.491\cdot10^{-5}\%\)& \(0.002210\%\)\\
+32&40&24& \(1.78\cdot10^{-12}\%\)& \(6.329\cdot10^{-7}\%\)& \(0.000856\%\)\\
+39&47&31& \(8.67\cdot10^{-13}\%\)& \(4.001\cdot10^{-7}\%\)& \(0.000634\%\)\\
+\bottomrule
+\end{tabular}
+\end{center}
+For example, the last numerator for order 39 is at most
+\(1\,873\,304\,817\,079\,141\,260\,187\,095\,338\,012\). This concerns a prescribed longer side in the ordinary ensemble. The exactly computed centroid-weighted sectors with one lower and one or three upper ends on this cut have respective excesses 23 and 22 on that side.
+
+\newpage
+\section{Approximating the number of closed meanders}
+Fix the first river point. Let \(C_n(W)\) count connected diagrams for which
+the number \(A=a+b\) of exposed ends never exceeds \(W\) during the scan.
+The marked-language argument of Theorem~\ref{height} applies with longer
+forbidden factors. Caroppo, Da Lozzo, Di Battista and Vihrovs use an
+unmarked language to obtain \(M_n=O^*(12.806^n)\) \cite{caroppo}.
+Here the marking records the diagrams omitted by the width restriction.
+
+\begin{theorem}\label{approx}
+Take \(W=2\lfloor 0.59n/2\rfloor\). The count \(C_n(W)\) can be computed
+in \(O^*(2^{0.59n})\) bit operations and space, with
+\[
+ \limsup_{n\to\infty}
+ \left(1-\frac{C_n(W)}{M_n}\right)^{1/n}<0.998465.
+\]
+Outside a set with the same upper exponential rate, every side of length
+\(\ell\ge n\) at every interior cut and cyclic origin satisfies
+\(d>0.205\ell\).
+\end{theorem}
+\begin{proof}
+There are \(1\,074\) further minimal forbidden factors through length ten,
+all of length ten. The \(1\,207\) factors give \(2\,899\) proper-prefix states.
+The checker traces internal arcs on all \(1\,398\,100\) nonempty words through
+length ten. For \(Q=81/50\), write \(T\) for the marked transition matrix.
+With \(v=(4050T)^{48}{\bf1}>0\) the integer test gives
+\(Tv\le rv\), \(r=979856551/250000000\). The width-30 transfer
+\cite{growthnote} gives
+\(\mu\ge33413036850866/2886789045121>11.5744\) at iteration 120.
+The rational comparison
+\[
+ \left(\frac{r^2}{11.5744\cdot0.998465}\right)^{100}
+ < (81/50)^{59}
+\]
+therefore bounds the rate for \(A\ge0.59n\) as in Theorem~\ref{height}.
+A path omitted at \(W\) attains such a height, since \(A\) changes by even
+increments. The union over cuts and cyclic origins contributes a polynomial
+factor. The excess estimate follows from \(2d=\ell-A+j\).
+
+At a cut of height \(2k\), a state consists of a noncrossing pairing and
+the position of the slit between its two banks, giving at most
+\((2k+1)\mathrm{Cat}_k\) states. Follow each pair of letters, discard
+closures before the final point and widths above \(W\), and add the counts
+of states with the same pairing and slit. Each step takes polynomial time per
+state and uses integers of \(O(n)\) bits. Summing over \(2k\le W\) gives
+the complexity bound, with polynomial factors suppressed.
+\end{proof}
+
+\begin{corollary}\label{four-sevenths}
+For \(W=2\lfloor2n/7\rfloor\) the strip approximation takes
+\(O^*(2^{4n/7})\) bit operations and space. Its relative error has upper
+exponential rate below \(0.999926\). Outside an exceptional set with the
+same rate bound, every side of length \(\ell\ge n\) at every interior cut and cyclic
+origin satisfies \(d>3\ell/14\).
+\end{corollary}
+\begin{proof}
+At \(Q=159/100\) the positive-vector test gives \(r=3898274927/10^9\).
+The width-32 witness in \cite{growthnote} at iteration 170 gives
+\[
+ \mu\ge L=\frac{9297001596594}{797351336483}>11.658989,\qquad
+ \left(\frac{r^2}{0.999926 L}\right)^7<Q^4 .
+\]
+Apply the preceding argument with \(c=4/7\).
+\end{proof}
+
+\newpage
+\subsection*{A finite certificate}
+For \(n>4\) let \(B_n(W)\) count all pairs of Dyck words of length \(2n\)
+which stay in this strip and avoid the 133 factors of lengths at most eight.
+Every omitted connected meander is an omitted word pair in this language.
+Consequently, with \(E=B_n(2n)-B_n(W)\),
+\[
+ C_n(W)\le M_n\le C_n(W)+E,\qquad
+ 1-C_n(W)/M_n\le E/(C_n(W)+E).
+\]
+To compute \(B_n(W)\), propagate the two nonnegative heights and the
+automaton state until both heights return to zero at step \(2n\).
+The 316-state automaton gives a polynomial calculation. The table shows
+the relative-error certificate for \(C_n(32)\), with percentages rounded
+upwards. The last column uses the known \(M_n\) where available.
+
+\begin{center}\small
+\begin{tabular}{r r r r}
+\toprule \(n\) & \(E\) & Upper error & Observed error\\ \midrule
+30 & \(197371618068833781757440\) & \(0.015420\%\) & \(0.000143\%\)\\
+32 & \(105286269443861482323904836\) & \(0.067896\%\) & \(0.000535\%\)\\
+39 & \(103974869180607135440186892143076026\) & \(3.036153\%\) & ---\\
+\bottomrule
+\end{tabular}
+\end{center}
+The supplement gives all eighteen intervals at widths \(16,20,24,28,30,32\)
+and checks every even width by direct enumeration of \(19\,188\) word pairs
+at orders five and six. At order 39 the earlier interval from the width
+profile and first-return estimates is narrower than the interval in this table.
+
+\begin{thebibliography}{9}\small
+\bibitem{dfgj} P. Di Francesco, E. Guitter and J. L. Jacobsen, \href{https://arxiv.org/abs/cond-mat/0003008}{Exact meander asymptotics: a numerical check}, Nuclear Phys. B \textbf{580} (2000), 757--795.
+\bibitem{ap} M. H. Albert and M. S. Paterson, \href{https://doi.org/10.1016/j.jcta.2005.02.006}{Bounds for the growth rate of meander numbers}, J. Combin. Theory Ser. A \textbf{112} (2005), 250--262.
+\bibitem{caroppo} S. Caroppo, G. Da Lozzo, G. Di Battista and J. Vihrovs,
+\href{https://arxiv.org/abs/2610.11944}{Faster planar graph algorithms for connectivity problems via meanders}, arXiv:2610.11944 (2026).
+\bibitem{growthnote} I. Argunov, \emph{A certified lower bound for the growth constant of plane meanders},
+companion manuscript and integer certificates, \texttt{growth-constant-review} (2026).
+\bibitem{bkw} C. Banderier, M. Kuba and M. Wallner, \href{https://doi.org/10.1214/24-AAP2076}{Phase transitions of composition schemes: Mittag-Leffler and mixed Poisson distributions}, Ann. Appl. Probab. \textbf{34} (2024), 4635--4693, Table~3.
+\bibitem{oeis} OEIS Foundation, \href{https://oeis.org/A098615}{A098615} and its even part \href{https://oeis.org/A046748}{A046748}.
+\bibitem{closed} OEIS Foundation, \href{https://oeis.org/A005315}{A005315}, closed meanders; E. Alepis, \href{https://github.com/talepis/meander-tree-bitmap}{Meander tree/bitmap enumeration}, source and known terms.
+\end{thebibliography}
+\end{document}
