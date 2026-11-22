@@ -1,0 +1,120 @@
+{
+  "convention": "n is half the number of crossings; a rooted return in m two-site slots has order m+1",
+  "width": 26,
+  "even_states": 14061140,
+  "odd_states": 13027729,
+  "root_in_odd": 1,
+  "upper_and_lower_banks_are_ordered": true,
+  "reflection_quotient": false,
+  "scc_pruning": false,
+  "seed": 35184372088832,
+  "direct_width_checks": 42,
+  "small_width_counts": {
+    "2": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64
+    ],
+    "4": [
+      1,
+      2,
+      8,
+      38,
+      184,
+      890,
+      4296
+    ],
+    "6": [
+      1,
+      2,
+      8,
+      42,
+      258,
+      1700,
+      11500
+    ],
+    "8": [
+      1,
+      2,
+      8,
+      42,
+      262,
+      1824,
+      13634
+    ],
+    "10": [
+      1,
+      2,
+      8,
+      42,
+      262,
+      1828,
+      13816
+    ],
+    "12": [
+      1,
+      2,
+      8,
+      42,
+      262,
+      1828,
+      13820
+    ]
+  },
+  "binary_witnesses": [
+    {
+      "slots": 1400,
+      "root": 10407548347941,
+      "binary_exponent": 4914,
+      "growth_strictly_greater_than": "11.382493"
+    },
+    {
+      "slots": 1800,
+      "root": 11113763344594,
+      "binary_exponent": 6321,
+      "growth_strictly_greater_than": "11.398270"
+    },
+    {
+      "slots": 1900,
+      "root": 9500174252006,
+      "binary_exponent": 6673,
+      "growth_strictly_greater_than": "11.401178"
+    },
+    {
+      "slots": 2500,
+      "root": 7412828470641,
+      "binary_exponent": 8784,
+      "growth_strictly_greater_than": "11.413752"
+    },
+    {
+      "slots": 3100,
+      "root": 11568213483477,
+      "binary_exponent": 10894,
+      "growth_strictly_greater_than": "11.421465"
+    }
+  ],
+  "fixed_witness": {
+    "numerator": 57,
+    "denominator": 5,
+    "slots": 1859,
+    "root": 35323046266550,
+    "max_value": 258293365614211,
+    "saturated_values": 0
+  },
+  "sha256": {
+    "small2.txt": "0c17e428e586c9f825f836cafc6f30e610195fffd51d406fb0edfab1a9353c80",
+    "small4.txt": "b88c9013365f0fef5b22307ed95637212fa6c1c52b8244c755adb4ac177b6efa",
+    "small6.txt": "ce7c3754e6a381bda9c3949fa9c488186ee29c0feef71998b3e711a1daa37b54",
+    "small8.txt": "a5dab0dc321e023c35f0ff51b168849b5739c76e345928dfb6d226d98eff3ff7",
+    "small10.txt": "5597d78302f8eb042903ecbf2c3805abacc7de0edb266e5a1499edbfde39d958",
+    "small12.txt": "d37dcbf6baf93053d63033b239e04f86b6f3cd5fb595d25d39b7a609902154e6",
+    "return26.txt": "7996bce82ba67c51c0d8a86c6207b70d7ecf900b4fc8c6dbea8c0e832e89091d",
+    "fixed26.txt": "cbe985a43c63b9f40413161cd49b4d98d1e53397ecad95d3f3e6b2cc76fe1d69",
+    "return.cpp": "82d747871b0a0b9b3188d3a08ee0040b25e59ef9d120df96df027f1db51fb92e",
+    "verify.py": "154263bf8a6a1c4b3e06fb76ab73a097f0bbbca0e3cfee7080fd707bbb19b49d"
+  }
+}
