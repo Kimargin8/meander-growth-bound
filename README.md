@@ -1,34 +1,41 @@
 # A certified lower bound for the growth constant of plane meanders
 
-**Iaroslav Argunov · November 2026**
+**Iaroslav Argunov · Revised manuscript and verification materials · Version 1.1.0**
 
-Let $M_n$ count the ordered pairs of noncrossing matchings on $2n$ sites whose union is one loop. The paper proves that their exponential growth constant $\mu=\lim_{n\to\infty}M_n^{1/n}$ satisfies
+The revised paper proves that the growth constant of connected closed meanders is at least $12401248195833/1058038773811>11.7209770594$. The certificate sums selected walks outside a connectivity strip and uses two distinct additional weights on its boundary shifts. For prescribed relative error $\epsilon$, the paper obtains a deterministic algorithm using $O^*(2^{14n/25}\epsilon^{-3/2})$ bit operations and bits of memory.
 
-$$
-\mu \geq \frac{4581442652581}{392062763189} > 11.6854827408 .
-$$
+[Revised paper](paper/growth-bound.pdf) · [LaTeX source](paper/growth-bound.tex) · [Companion paper](companion/shortest_meander_halves.pdf) · [Zenodo v1.1.0](https://doi.org/10.5281/zenodo.24449944) · [First release](https://doi.org/10.5281/zenodo.24448957)
 
-The lower bound comes from a finite transfer with at most 32 open ends. A second construction counts returns to one state in a smaller transfer and proves $\mu>11.421465$. The article also gives a deterministic relative approximation to $M_n$ at prescribed accuracy.
+## Reproduce the revision
 
-| Manuscript | Files |
-|---|---|
-| A certified lower bound for the growth constant of plane meanders | [Paper](growth/output/research73/paper/growth_constant.pdf) · [LaTeX source](growth/research/review73/star/growth_constant.tex) |
-| Shortest and near-shortest halves of closed plane meanders | [Companion paper](companion/shortest_meander_halves.pdf) · [LaTeX source](companion/shortest_meander_halves.tex) |
+From the root of this release, using Python 3.10 or later, run
 
-## Verify the result
+~~~text
+python -B verify.py
+~~~
 
-Run the following command from this directory with Python 3.10 or later, using the standard library.
+The command checks the release manifest and integer comparisons, recomputes the boundary weights in two ways, and traces small diagrams. To reproduce the finite-width choices or run a small confined count, use
 
-```sh
-python3 -B verify.py
-```
+~~~text
+python -B extension/research/review75/paper/precision.py 1000 1/100
+python -B extension/research/review75/paper/precision.py 5 1/100 --count
+~~~
 
-This checks the distributed files and integer certificates, traces small meanders directly, and reproduces the companion calculations. The concluding line reports success. The largest transfer is a separate native calculation. Rebuilding it requires a 64-bit Linux system with GCC and OpenMP. The independent vector check and the programs for recomputing positive-vector bounds are described in the [growth verification instructions](growth/README.md). The [companion guide](companion/README.md) identifies the program for each statement about cuts.
+The optional large computation uses 64-bit little-endian Linux with GCC and OpenMP. Choose a writable directory on a disk with at least 10 GB free. From the **extension** directory use the following commands with a fresh working directory. The first reconstructs the two earlier vectors, and the next five construct and independently verify the final vector.
 
-The recorded [exact bound](growth/output/research73/growth/growth-bounds.json), [independent vector check](growth/output/research73/growth/vector32-final.txt) and [return certificate](growth/output/research73/growth_return/verified.json) can also be inspected individually.
+~~~sh
+python3 -B research/review74/boundary/replay.py --full --work /tmp/meander-v11 --threads 12
+python3 -B research/review75/growth/build.py /tmp/meander-v11/gap
+OMP_NUM_THREADS=12 /tmp/meander-v11/gap/compute /tmp/meander-v11/short-exits-32.bin 80 /tmp/meander-v11/final.bin
+OMP_NUM_THREADS=12 /tmp/meander-v11/gap/audit /tmp/meander-v11/final.bin
+g++ -O3 -std=c++17 research/review75/growth/compare.cpp -o /tmp/meander-v11/gap/compare
+/tmp/meander-v11/gap/compare /tmp/meander-v11/baseline-32.bin /tmp/meander-v11/final.bin
+sha256sum /tmp/meander-v11/final.bin
+~~~
 
-## Citation and reuse
+The final vector is 3,088,468,656 bytes. Its SHA-256 digest is 23fdd8c621fedbb2ef40556a1bf484758149ed28afebee0aed0a0675123ef538. The [verification receipt](extension/output/research75/growth/verified.json) gives the reduced fraction, the older input digests, the finite lower bound and the sufficient widths. The [derivation](extension/research/review75/growth/reading.md) explains the coordinate comparisons. Python with NumPy and SciPy is needed only for the separate small-width spectral experiments supplied with the earlier excursion certificates.
 
-Cite Iaroslav Argunov, *A certified lower bound for the growth constant of plane meanders* (2026). For a result specific to shortest halves, cite the companion paper by its own title. The original code is available under the MIT License. The original manuscripts and certificate data are available under CC BY 4.0. The external reference table retains its OEIS attribution and license. [Citation metadata](CITATION.cff) · [License scope and third-party credit](NOTICE.md)
+The [original strip study](growth/README.md) and [companion](companion/README.md) retain their own checks. Run python -B verify_baseline.py from the release root to run the original suite, including its companion calculations. The exact enumeration benchmark on the Intel workstation is a separate project experiment.
 
-Archived preprint and supplement: [10.5281/zenodo.24448957](https://doi.org/10.5281/zenodo.24448957).
+See [version changes](CHANGES.md), [citation metadata](CITATION.cff) and [licenses and attribution](NOTICE.md).
+
