@@ -1,0 +1,17 @@
+width 2 matchings 1 shifts 3 opens 2 closes 0 early_closures 1
+width 4 matchings 2 shifts 10 opens 6 closes 2 early_closures 2
+width 6 matchings 5 shifts 35 opens 20 closes 9 early_closures 6
+width 8 matchings 14 shifts 126 opens 70 closes 36 early_closures 20
+width 10 matchings 42 shifts 462 opens 252 closes 140 early_closures 70
+width 12 matchings 132 shifts 1716 opens 924 closes 540 early_closures 252
+width 14 matchings 429 shifts 6435 opens 3432 closes 2079 early_closures 924
+width 16 matchings 1430 shifts 24310 opens 12870 closes 8008 early_closures 3432
+width 18 matchings 4862 shifts 92378 opens 48620 closes 30888 early_closures 12870
+width 20 matchings 16796 shifts 352716 opens 184756 closes 119340 early_closures 48620
+width 22 matchings 58786 shifts 1352078 opens 705432 closes 461890 early_closures 184756
+width 24 matchings 208012 shifts 5200300 opens 2704156 closes 1790712 early_closures 705432
+width 26 matchings 742900 shifts 20058300 opens 10400600 closes 6953544 early_closures 2704156
+width 28 matchings 2674440 shifts 77558760 opens 40116600 closes 27041560 early_closures 10400600
+width 30 matchings 9694845 shifts 300540195 opens 155117520 closes 105306075 early_closures 40116600
+width 32 matchings 35357670 shifts 1166803110 opens 0 closes 410605200 early_closures 155117520
+TOTAL states 810375650 matchings 48760366 shifts 1571990934 opens 209295260 closes 552320023 early_closures 209295261

@@ -1,0 +1,60 @@
+{
+  "native_semantic_reproduction": [
+    "w26: full physical graph, 250 iterations",
+    "f28: reflected graph, 300 iterations"
+  ],
+  "direct_small_reproduction": "three freshly compiled transfers, all 7 even widths 2..14, orders 1..8",
+  "method": "extract a new source ZIP into an empty temporary directory and compile there; compare counts, return tests and every rational enclosure",
+  "platform": "Linux",
+  "python": "3.12.3",
+  "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "threads": 8,
+  "command": [
+    "python3",
+    "research/review73/growth/verify.py",
+    "--small-native",
+    "--replay",
+    "w26",
+    "--replay",
+    "f28",
+    "--threads",
+    "8",
+    "--cxx",
+    "g++"
+  ],
+  "source_and_expected_log_sha256": {
+    "output/research73/growth/f28.txt": "5c710af1c1d262117016147a6f6371feebde4e0e34ffaaa04752b35f2b0d6de4",
+    "output/research73/growth/w26.txt": "a828e676ccd5868aefd61e001c15018088c9e71a05760514e63c09396e3f44c2",
+    "research/review57/strip/confined.cpp": "41a09776c24b00216632f0150fd5e4801b43b10328a4daee92abb87813fd5e3e",
+    "research/review73/growth/folded_bound.cpp": "c422bba84d0b0f5338507da8a5b6c4e2b3a4541198d17a6895afd776e33fb14b",
+    "research/review73/growth/implicit_bound.cpp": "f8c885bbe70bbb83ac0aa2a9cd797c3f0c0fe1cc7689fd8eff2eb82b0baac479",
+    "research/review73/growth/strip_bound.cpp": "12fce681a6028890683995bd09926fcb4c8cdea58b358f8ac924d9fc33f4678b",
+    "research/review73/growth/verify.py": "c6d308894ed18abfe29e4a12a9357e97b2b450df85ea19185809651c69c0f982"
+  },
+  "native_replay_driver_sections": {
+    "functions": {
+      "parse": "5df7be2f10780eaf0cd83377c7806c73434a162d518c8084d0949530a6000c35",
+      "arches": "481cf03bd293a9e0c7573abcc44e598a5f212ec6febc4772730d848bf33578c4",
+      "literal": "bdaec9aa88fe7a9ee837948ffadb2333612ab441c05f8025833ebf41fa04d26e",
+      "compile_one": "c22e1661a50b0746c33817e1de1dd2ae70215a1e5ab87244d2724b82166eb3cc",
+      "native_tests": "958bc511c15bbec97287707fb336d4b70ed15e5cf3f259484d85367008e48c3c"
+    },
+    "runs": {
+      "w26": [
+        "strip_bound.cpp",
+        26,
+        250
+      ],
+      "f28": [
+        "folded_bound.cpp",
+        28,
+        300
+      ]
+    }
+  },
+  "output": [
+    "All three transfers match direct labelled diagrams, orders 1 through 8, widths 2 through 14.",
+    "w26 all exact ratios, width-restricted counts and return tests reproduced",
+    "f28 all exact ratios, width-restricted counts and return tests reproduced"
+  ]
+}

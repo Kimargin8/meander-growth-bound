@@ -1,0 +1,117 @@
+{
+  "strip_width": 32,
+  "comparison_lower": "583/50",
+  "first_supporting_iteration": 180,
+  "integer_row_minimum": "2517567954515/215853621607",
+  "common_return_slots": 15,
+  "universal_integer_scale": 4503599627370496,
+  "uniform_finite_base": "292/25",
+  "uniform_prefactor_power_of_two": -21,
+  "uniform_witness": [
+    "5",
+    "58"
+  ],
+  "avoidance_states": 2899,
+  "forbidden_patterns": 1207,
+  "Q": "159/100",
+  "rho_upper": "3898274927/1000000000",
+  "prefactor_squared_strict_upper": 2,
+  "examples": [
+    {
+      "order": 15,
+      "epsilon": "1/100",
+      "elementary_width": 30,
+      "certified_width": 30
+    },
+    {
+      "order": 15,
+      "epsilon": "1/1000000",
+      "elementary_width": 30,
+      "certified_width": 30
+    },
+    {
+      "order": 16,
+      "epsilon": "1/100",
+      "elementary_width": 32,
+      "certified_width": 32
+    },
+    {
+      "order": 16,
+      "epsilon": "1/1000000",
+      "elementary_width": 32,
+      "certified_width": 32
+    },
+    {
+      "order": 30,
+      "epsilon": "1/100",
+      "elementary_width": 60,
+      "certified_width": 60
+    },
+    {
+      "order": 30,
+      "epsilon": "1/1000000",
+      "elementary_width": 60,
+      "certified_width": 60
+    },
+    {
+      "order": 32,
+      "epsilon": "1/100",
+      "elementary_width": 64,
+      "certified_width": 64
+    },
+    {
+      "order": 32,
+      "epsilon": "1/1000000",
+      "elementary_width": 64,
+      "certified_width": 64
+    },
+    {
+      "order": 39,
+      "epsilon": "1/100",
+      "elementary_width": 78,
+      "certified_width": 76
+    },
+    {
+      "order": 39,
+      "epsilon": "1/1000000",
+      "elementary_width": 78,
+      "certified_width": 78
+    },
+    {
+      "order": 100,
+      "epsilon": "1/100",
+      "elementary_width": 200,
+      "certified_width": 112
+    },
+    {
+      "order": 100,
+      "epsilon": "1/1000000",
+      "elementary_width": 200,
+      "certified_width": 132
+    },
+    {
+      "order": 1000,
+      "epsilon": "1/100",
+      "elementary_width": 762,
+      "certified_width": 628
+    },
+    {
+      "order": 1000,
+      "epsilon": "1/1000000",
+      "elementary_width": 782,
+      "certified_width": 648
+    },
+    {
+      "order": 10000,
+      "epsilon": "1/100",
+      "elementary_width": 5908,
+      "certified_width": 5740
+    },
+    {
+      "order": 10000,
+      "epsilon": "1/1000000",
+      "elementary_width": 5928,
+      "certified_width": 5760
+    }
+  ]
+}
