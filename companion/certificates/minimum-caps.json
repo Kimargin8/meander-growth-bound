@@ -1,0 +1,1300 @@
+{
+  "observations": [
+    {
+      "t": 1,
+      "word_pairs": 1,
+      "positive_types_up_to_twelve_ends": 1,
+      "shortest_types": 1,
+      "largest_shortest_multiplicity": 1
+    },
+    {
+      "t": 2,
+      "word_pairs": 4,
+      "positive_types_up_to_twelve_ends": 3,
+      "shortest_types": 3,
+      "largest_shortest_multiplicity": 1
+    },
+    {
+      "t": 3,
+      "word_pairs": 9,
+      "positive_types_up_to_twelve_ends": 6,
+      "shortest_types": 5,
+      "largest_shortest_multiplicity": 1
+    },
+    {
+      "t": 4,
+      "word_pairs": 36,
+      "positive_types_up_to_twelve_ends": 15,
+      "shortest_types": 12,
+      "largest_shortest_multiplicity": 2
+    },
+    {
+      "t": 5,
+      "word_pairs": 100,
+      "positive_types_up_to_twelve_ends": 29,
+      "shortest_types": 23,
+      "largest_shortest_multiplicity": 2
+    },
+    {
+      "t": 6,
+      "word_pairs": 400,
+      "positive_types_up_to_twelve_ends": 67,
+      "shortest_types": 52,
+      "largest_shortest_multiplicity": 3
+    },
+    {
+      "t": 7,
+      "word_pairs": 1225,
+      "positive_types_up_to_twelve_ends": 133,
+      "shortest_types": 104,
+      "largest_shortest_multiplicity": 3
+    },
+    {
+      "t": 8,
+      "word_pairs": 4900,
+      "positive_types_up_to_twelve_ends": 284,
+      "shortest_types": 217,
+      "largest_shortest_multiplicity": 6
+    },
+    {
+      "t": 9,
+      "word_pairs": 15876,
+      "positive_types_up_to_twelve_ends": 506,
+      "shortest_types": 373,
+      "largest_shortest_multiplicity": 6
+    },
+    {
+      "t": 10,
+      "word_pairs": 63504,
+      "positive_types_up_to_twelve_ends": 845,
+      "shortest_types": 561,
+      "largest_shortest_multiplicity": 10
+    },
+    {
+      "t": 11,
+      "word_pairs": 213444,
+      "positive_types_up_to_twelve_ends": 1078,
+      "shortest_types": 572,
+      "largest_shortest_multiplicity": 10
+    }
+  ],
+  "nontrivial_interleaving": {
+    "a": 4,
+    "b": 4,
+    "t": 8,
+    "pairing": [
+      1,
+      0,
+      3,
+      2,
+      5,
+      4,
+      7,
+      6
+    ],
+    "minimum_schedules": 6
+  },
+  "strict_cut_example": {
+    "a": 2,
+    "b": 2,
+    "side_length": 4,
+    "interior_pairing": [
+      3,
+      2,
+      1,
+      0
+    ],
+    "longest_pairing": [
+      1,
+      0,
+      3,
+      2
+    ],
+    "strict_interior_matrix": [
+      [
+        0
+      ]
+    ],
+    "interior_to_longest": [
+      [
+        1
+      ]
+    ]
+  },
+  "source_sha256": "06546fbb4458001fe9d20c975acd1d281806e5a032f860ccf0fe18df48d89da0",
+  "all_grades": {
+    "columns": [
+      "upper_height",
+      "lower_height",
+      "through_pairs",
+      "shortest_realisations",
+      "shortest_types"
+    ],
+    "through_columns": [
+      "through_pairs",
+      "shortest_realisations",
+      "shortest_types"
+    ],
+    "checks": {
+      "nonempty_histogram_entries": 5329,
+      "four_degree_tuples_including_zero_coefficients": 2366,
+      "four_degree_nonzero_tuples": 112,
+      "through_coefficients_per_series": 78,
+      "reachability_equalities": 163534,
+      "shortest_multiplicity_equalities": 4161,
+      "odd_binomial_coefficients": 21
+    },
+    "layers": [
+      {
+        "t": 0,
+        "shortest_realisations": 1,
+        "shortest_types": 1,
+        "shortest_types_above_twelve_ends": 0,
+        "largest_shortest_multiplicity": 1,
+        "reachable_nonempty_types": 0,
+        "tested_degree_tuples": 1,
+        "grades": [
+          [
+            0,
+            0,
+            0,
+            1,
+            1
+          ]
+        ],
+        "through_profiles": [
+          [
+            0,
+            1,
+            1
+          ]
+        ]
+      },
+      {
+        "t": 1,
+        "shortest_realisations": 1,
+        "shortest_types": 1,
+        "shortest_types_above_twelve_ends": 0,
+        "largest_shortest_multiplicity": 1,
+        "reachable_nonempty_types": 1,
+        "tested_degree_tuples": 5,
+        "grades": [
+          [
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "through_profiles": [
+          [
+            1,
+            1,
+            1
+          ]
+        ]
+      },
+      {
+        "t": 2,
+        "shortest_realisations": 3,
+        "shortest_types": 3,
+        "shortest_types_above_twelve_ends": 0,
+        "largest_shortest_multiplicity": 1,
+        "reachable_nonempty_types": 3,
+        "tested_degree_tuples": 14,
+        "grades": [
+          [
+            0,
+            2,
+            0,
+            1,
+            1
+          ],
+          [
+            2,
+            0,
+            0,
+            1,
+            1
+          ],
+          [
+            2,
+            2,
+            2,
+            1,
+            1
+          ]
+        ],
+        "through_profiles": [
+          [
+            0,
+            2,
+            2
+          ],
+          [
+            2,
+            1,
+            1
+          ]
+        ]
+      },
+      {
+        "t": 3,
+        "shortest_realisations": 5,
+        "shortest_types": 5,
+        "shortest_types_above_twelve_ends": 0,
+        "largest_shortest_multiplicity": 1,
+        "reachable_nonempty_types": 6,
+        "tested_degree_tuples": 30,
+        "grades": [
+          [
+            1,
+            3,
+            1,
+            2,
+            2
+          ],
+          [
+            3,
+            1,
+            1,
+            2,
+            2
+          ],
+          [
+            3,
+            3,
+            3,
+            1,
+            1
+          ]
+        ],
+        "through_profiles": [
+          [
+            1,
+            4,
+            4
+          ],
+          [
+            3,
+            1,
+            1
+          ]
+        ]
+      },
+      {
+        "t": 4,
+        "shortest_realisations": 13,
+        "shortest_types": 12,
+        "shortest_types_above_twelve_ends": 0,
+        "largest_shortest_multiplicity": 2,
+        "reachable_nonempty_types": 15,
+        "tested_degree_tuples": 55,
+        "grades": [
+          [
+            0,
+            4,
+            0,
+            2,
+            2
+          ],
+          [
+            2,
+            2,
+            0,
+            2,
+            1
+          ],
+          [
+            2,
+            4,
+            2,
+            3,
+            3
+          ],
+          [
+            4,
+            0,
+            0,
+            2,
+            2
+          ],
+          [
+            4,
+            2,
+            2,
+            3,
+            3
+          ],
+          [
+            4,
+            4,
+            4,
+            1,
+            1
+          ]
+        ],
+        "through_profiles": [
+          [
+            0,
+            6,
+            5
+          ],
+          [
+            2,
+            6,
+            6
+          ],
+          [
+            4,
+            1,
+            1
+          ]
+        ]
+      },
+      {
+        "t": 5,
+        "shortest_realisations": 25,
+        "shortest_types": 23,
+        "shortest_types_above_twelve_ends": 0,
+        "largest_shortest_multiplicity": 2,
+        "reachable_nonempty_types": 29,
+        "tested_degree_tuples": 91,
+        "grades": [
+          [
+            1,
+            5,
+            1,
+            5,
+            5
+          ],
+          [
+            3,
+            3,
+            1,
+            6,
+            4
+          ],
+          [
+            3,
+            5,
+            3,
+            4,
+            4
+          ],
+          [
+            5,
+            1,
+            1,
+            5,
+            5
+          ],
+          [
+            5,
+            3,
+            3,
+            4,
+            4
+          ],
+          [
+            5,
+            5,
+            5,
+            1,
+            1
+          ]
+        ],
+        "through_profiles": [
+          [
+            1,
+            16,
+            14
+          ],
+          [
+            3,
+            8,
+            8
+          ],
+          [
+            5,
+            1,
+            1
+          ]
+        ]
+      },
+      {
+        "t": 6,
+        "shortest_realisations": 61,
+        "shortest_types": 52,
+        "shortest_types_above_twelve_ends": 0,
+        "largest_shortest_multiplicity": 3,
+        "reachable_nonempty_types": 67,
+        "tested_degree_tuples": 140,
+        "grades": [
+          [
+            0,
+            6,
+            0,
+            5,
+            5
+          ],
+          [
+            2,
+            4,
+            0,
+            5,
+            2
+          ],
+          [
+            2,
+            6,
+            2,
+            9,
+            9
+          ],
+          [
+            4,
+            2,
+            0,
+            5,
+            2
+          ],
+          [
+            4,
+            4,
+            2,
+            12,
+            9
+          ],
+          [
+            4,
+            6,
+            4,
+            5,
+            5
+          ],
+          [
+            6,
+            0,
+            0,
+            5,
+            5
+          ],
+          [
+            6,
+            2,
+            2,
+            9,
+            9
+          ],
+          [
+            6,
+            4,
+            4,
+            5,
+            5
+          ],
+          [
+            6,
+            6,
+            6,
+            1,
+            1
+          ]
+        ],
+        "through_profiles": [
+          [
+            0,
+            20,
+            14
+          ],
+          [
+            2,
+            30,
+            27
+          ],
+          [
+            4,
+            10,
+            10
+          ],
+          [
+            6,
+            1,
+            1
+          ]
+        ]
+      },
+      {
+        "t": 7,
+        "shortest_realisations": 125,
+        "shortest_types": 105,
+        "shortest_types_above_twelve_ends": 1,
+        "largest_shortest_multiplicity": 3,
+        "reachable_nonempty_types": 134,
+        "tested_degree_tuples": 204,
+        "grades": [
+          [
+            1,
+            7,
+            1,
+            14,
+            14
+          ],
+          [
+            3,
+            5,
+            1,
+            18,
+            10
+          ],
+          [
+            3,
+            7,
+            3,
+            14,
+            14
+          ],
+          [
+            5,
+            3,
+            1,
+            18,
+            10
+          ],
+          [
+            5,
+            5,
+            3,
+            20,
+            16
+          ],
+          [
+            5,
+            7,
+            5,
+            6,
+            6
+          ],
+          [
+            7,
+            1,
+            1,
+            14,
+            14
+          ],
+          [
+            7,
+            3,
+            3,
+            14,
+            14
+          ],
+          [
+            7,
+            5,
+            5,
+            6,
+            6
+          ],
+          [
+            7,
+            7,
+            7,
+            1,
+            1
+          ]
+        ],
+        "through_profiles": [
+          [
+            1,
+            64,
+            48
+          ],
+          [
+            3,
+            48,
+            44
+          ],
+          [
+            5,
+            12,
+            12
+          ],
+          [
+            7,
+            1,
+            1
+          ]
+        ]
+      },
+      {
+        "t": 8,
+        "shortest_realisations": 295,
+        "shortest_types": 232,
+        "shortest_types_above_twelve_ends": 15,
+        "largest_shortest_multiplicity": 6,
+        "reachable_nonempty_types": 299,
+        "tested_degree_tuples": 285,
+        "grades": [
+          [
+            0,
+            8,
+            0,
+            14,
+            14
+          ],
+          [
+            2,
+            6,
+            0,
+            14,
+            5
+          ],
+          [
+            2,
+            8,
+            2,
+            28,
+            28
+          ],
+          [
+            4,
+            4,
+            0,
+            14,
+            4
+          ],
+          [
+            4,
+            6,
+            2,
+            42,
+            27
+          ],
+          [
+            4,
+            8,
+            4,
+            20,
+            20
+          ],
+          [
+            6,
+            2,
+            0,
+            14,
+            5
+          ],
+          [
+            6,
+            4,
+            2,
+            42,
+            27
+          ],
+          [
+            6,
+            6,
+            4,
+            30,
+            25
+          ],
+          [
+            6,
+            8,
+            6,
+            7,
+            7
+          ],
+          [
+            8,
+            0,
+            0,
+            14,
+            14
+          ],
+          [
+            8,
+            2,
+            2,
+            28,
+            28
+          ],
+          [
+            8,
+            4,
+            4,
+            20,
+            20
+          ],
+          [
+            8,
+            6,
+            6,
+            7,
+            7
+          ],
+          [
+            8,
+            8,
+            8,
+            1,
+            1
+          ]
+        ],
+        "through_profiles": [
+          [
+            0,
+            70,
+            42
+          ],
+          [
+            2,
+            140,
+            110
+          ],
+          [
+            4,
+            70,
+            65
+          ],
+          [
+            6,
+            14,
+            14
+          ],
+          [
+            8,
+            1,
+            1
+          ]
+        ]
+      },
+      {
+        "t": 9,
+        "shortest_realisations": 625,
+        "shortest_types": 480,
+        "shortest_types_above_twelve_ends": 107,
+        "largest_shortest_multiplicity": 6,
+        "reachable_nonempty_types": 614,
+        "tested_degree_tuples": 385,
+        "grades": [
+          [
+            1,
+            9,
+            1,
+            42,
+            42
+          ],
+          [
+            3,
+            7,
+            1,
+            56,
+            28
+          ],
+          [
+            3,
+            9,
+            3,
+            48,
+            48
+          ],
+          [
+            5,
+            5,
+            1,
+            60,
+            25
+          ],
+          [
+            5,
+            7,
+            3,
+            80,
+            56
+          ],
+          [
+            5,
+            9,
+            5,
+            27,
+            27
+          ],
+          [
+            7,
+            3,
+            1,
+            56,
+            28
+          ],
+          [
+            7,
+            5,
+            3,
+            80,
+            56
+          ],
+          [
+            7,
+            7,
+            5,
+            42,
+            36
+          ],
+          [
+            7,
+            9,
+            7,
+            8,
+            8
+          ],
+          [
+            9,
+            1,
+            1,
+            42,
+            42
+          ],
+          [
+            9,
+            3,
+            3,
+            48,
+            48
+          ],
+          [
+            9,
+            5,
+            5,
+            27,
+            27
+          ],
+          [
+            9,
+            7,
+            7,
+            8,
+            8
+          ],
+          [
+            9,
+            9,
+            9,
+            1,
+            1
+          ]
+        ],
+        "through_profiles": [
+          [
+            1,
+            256,
+            165
+          ],
+          [
+            3,
+            256,
+            208
+          ],
+          [
+            5,
+            96,
+            90
+          ],
+          [
+            7,
+            16,
+            16
+          ],
+          [
+            9,
+            1,
+            1
+          ]
+        ]
+      },
+      {
+        "t": 10,
+        "shortest_realisations": 1447,
+        "shortest_types": 1049,
+        "shortest_types_above_twelve_ends": 488,
+        "largest_shortest_multiplicity": 10,
+        "reachable_nonempty_types": 1348,
+        "tested_degree_tuples": 506,
+        "grades": [
+          [
+            0,
+            10,
+            0,
+            42,
+            42
+          ],
+          [
+            2,
+            8,
+            0,
+            42,
+            14
+          ],
+          [
+            2,
+            10,
+            2,
+            90,
+            90
+          ],
+          [
+            4,
+            6,
+            0,
+            42,
+            10
+          ],
+          [
+            4,
+            8,
+            2,
+            144,
+            84
+          ],
+          [
+            4,
+            10,
+            4,
+            75,
+            75
+          ],
+          [
+            6,
+            4,
+            0,
+            42,
+            10
+          ],
+          [
+            6,
+            6,
+            2,
+            162,
+            81
+          ],
+          [
+            6,
+            8,
+            4,
+            135,
+            100
+          ],
+          [
+            6,
+            10,
+            6,
+            35,
+            35
+          ],
+          [
+            8,
+            2,
+            0,
+            42,
+            14
+          ],
+          [
+            8,
+            4,
+            2,
+            144,
+            84
+          ],
+          [
+            8,
+            6,
+            4,
+            135,
+            100
+          ],
+          [
+            8,
+            8,
+            6,
+            56,
+            49
+          ],
+          [
+            8,
+            10,
+            8,
+            9,
+            9
+          ],
+          [
+            10,
+            0,
+            0,
+            42,
+            42
+          ],
+          [
+            10,
+            2,
+            2,
+            90,
+            90
+          ],
+          [
+            10,
+            4,
+            4,
+            75,
+            75
+          ],
+          [
+            10,
+            6,
+            6,
+            35,
+            35
+          ],
+          [
+            10,
+            8,
+            8,
+            9,
+            9
+          ],
+          [
+            10,
+            10,
+            10,
+            1,
+            1
+          ]
+        ],
+        "through_profiles": [
+          [
+            0,
+            252,
+            132
+          ],
+          [
+            2,
+            630,
+            429
+          ],
+          [
+            4,
+            420,
+            350
+          ],
+          [
+            6,
+            126,
+            119
+          ],
+          [
+            8,
+            18,
+            18
+          ],
+          [
+            10,
+            1,
+            1
+          ]
+        ]
+      },
+      {
+        "t": 11,
+        "shortest_realisations": 3125,
+        "shortest_types": 2199,
+        "shortest_types_above_twelve_ends": 1627,
+        "largest_shortest_multiplicity": 10,
+        "reachable_nonempty_types": 2813,
+        "tested_degree_tuples": 650,
+        "grades": [
+          [
+            1,
+            11,
+            1,
+            132,
+            132
+          ],
+          [
+            3,
+            9,
+            1,
+            180,
+            84
+          ],
+          [
+            3,
+            11,
+            3,
+            165,
+            165
+          ],
+          [
+            5,
+            7,
+            1,
+            200,
+            70
+          ],
+          [
+            5,
+            9,
+            3,
+            300,
+            192
+          ],
+          [
+            5,
+            11,
+            5,
+            110,
+            110
+          ],
+          [
+            7,
+            5,
+            1,
+            200,
+            70
+          ],
+          [
+            7,
+            7,
+            3,
+            350,
+            196
+          ],
+          [
+            7,
+            9,
+            5,
+            210,
+            162
+          ],
+          [
+            7,
+            11,
+            7,
+            44,
+            44
+          ],
+          [
+            9,
+            3,
+            1,
+            180,
+            84
+          ],
+          [
+            9,
+            5,
+            3,
+            300,
+            192
+          ],
+          [
+            9,
+            7,
+            5,
+            210,
+            162
+          ],
+          [
+            9,
+            9,
+            7,
+            72,
+            64
+          ],
+          [
+            9,
+            11,
+            9,
+            10,
+            10
+          ],
+          [
+            11,
+            1,
+            1,
+            132,
+            132
+          ],
+          [
+            11,
+            3,
+            3,
+            165,
+            165
+          ],
+          [
+            11,
+            5,
+            5,
+            110,
+            110
+          ],
+          [
+            11,
+            7,
+            7,
+            44,
+            44
+          ],
+          [
+            11,
+            9,
+            9,
+            10,
+            10
+          ],
+          [
+            11,
+            11,
+            11,
+            1,
+            1
+          ]
+        ],
+        "through_profiles": [
+          [
+            1,
+            1024,
+            572
+          ],
+          [
+            3,
+            1280,
+            910
+          ],
+          [
+            5,
+            640,
+            544
+          ],
+          [
+            7,
+            160,
+            152
+          ],
+          [
+            9,
+            20,
+            20
+          ],
+          [
+            11,
+            1,
+            1
+          ]
+        ]
+      }
+    ]
+  }
+}

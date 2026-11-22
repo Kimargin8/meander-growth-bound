@@ -1,0 +1,1008 @@
+{
+  "smaller_case_counts": {
+    "1": 43,
+    "2": 4
+  },
+  "small_types_admitting_no_ordinary_component": {
+    "1": 3,
+    "2": 4
+  },
+  "literal_word_pairs": 13987,
+  "literal_height_time_groups": 22,
+  "source_sha256": "20cb7be44b2d0d8403e72e52d2aa389ac70e538b2cc5dbb99398bc7447a1c14b",
+  "checks": [
+    {
+      "a": 0,
+      "b": 2,
+      "p": [
+        1,
+        0
+      ],
+      "through": 0,
+      "L": 2,
+      "d": 1,
+      "t": 4,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        3
+      ],
+      "count": 3
+    },
+    {
+      "a": 0,
+      "b": 2,
+      "p": [
+        1,
+        0
+      ],
+      "through": 0,
+      "L": 2,
+      "d": 2,
+      "t": 6,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        14,
+        0
+      ],
+      "count": 14
+    },
+    {
+      "a": 1,
+      "b": 1,
+      "p": [
+        1,
+        0
+      ],
+      "through": 1,
+      "L": 1,
+      "d": 1,
+      "t": 3,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        2
+      ],
+      "count": 2
+    },
+    {
+      "a": 1,
+      "b": 1,
+      "p": [
+        1,
+        0
+      ],
+      "through": 1,
+      "L": 1,
+      "d": 2,
+      "t": 5,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        8,
+        0
+      ],
+      "count": 8
+    },
+    {
+      "a": 2,
+      "b": 0,
+      "p": [
+        1,
+        0
+      ],
+      "through": 0,
+      "L": 2,
+      "d": 1,
+      "t": 4,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        3
+      ],
+      "count": 3
+    },
+    {
+      "a": 2,
+      "b": 0,
+      "p": [
+        1,
+        0
+      ],
+      "through": 0,
+      "L": 2,
+      "d": 2,
+      "t": 6,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        14,
+        0
+      ],
+      "count": 14
+    },
+    {
+      "a": 0,
+      "b": 4,
+      "p": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "through": 0,
+      "L": 4,
+      "d": 1,
+      "t": 6,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        8
+      ],
+      "count": 8
+    },
+    {
+      "a": 1,
+      "b": 3,
+      "p": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "through": 1,
+      "L": 3,
+      "d": 1,
+      "t": 5,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        6
+      ],
+      "count": 6
+    },
+    {
+      "a": 2,
+      "b": 2,
+      "p": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "through": 0,
+      "L": 4,
+      "d": 1,
+      "t": 6,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        14
+      ],
+      "count": 14
+    },
+    {
+      "a": 3,
+      "b": 1,
+      "p": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "through": 1,
+      "L": 3,
+      "d": 1,
+      "t": 5,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        6
+      ],
+      "count": 6
+    },
+    {
+      "a": 4,
+      "b": 0,
+      "p": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "through": 0,
+      "L": 4,
+      "d": 1,
+      "t": 6,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        8
+      ],
+      "count": 8
+    },
+    {
+      "a": 0,
+      "b": 4,
+      "p": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "through": 0,
+      "L": 4,
+      "d": 1,
+      "t": 6,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        7
+      ],
+      "count": 7
+    },
+    {
+      "a": 1,
+      "b": 3,
+      "p": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "through": 1,
+      "L": 3,
+      "d": 1,
+      "t": 5,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        6
+      ],
+      "count": 6
+    },
+    {
+      "a": 2,
+      "b": 2,
+      "p": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "through": 2,
+      "L": 2,
+      "d": 1,
+      "t": 4,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        4
+      ],
+      "count": 4
+    },
+    {
+      "a": 2,
+      "b": 2,
+      "p": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "through": 2,
+      "L": 2,
+      "d": 2,
+      "t": 6,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        16,
+        6
+      ],
+      "count": 22
+    },
+    {
+      "a": 3,
+      "b": 1,
+      "p": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "through": 1,
+      "L": 3,
+      "d": 1,
+      "t": 5,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        6
+      ],
+      "count": 6
+    },
+    {
+      "a": 4,
+      "b": 0,
+      "p": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "through": 0,
+      "L": 4,
+      "d": 1,
+      "t": 6,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        7
+      ],
+      "count": 7
+    },
+    {
+      "a": 1,
+      "b": 5,
+      "p": [
+        1,
+        0,
+        3,
+        2,
+        5,
+        4
+      ],
+      "through": 1,
+      "L": 5,
+      "d": 1,
+      "t": 7,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        12
+      ],
+      "count": 12
+    },
+    {
+      "a": 3,
+      "b": 3,
+      "p": [
+        1,
+        0,
+        3,
+        2,
+        5,
+        4
+      ],
+      "through": 1,
+      "L": 5,
+      "d": 1,
+      "t": 7,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        20
+      ],
+      "count": 20
+    },
+    {
+      "a": 5,
+      "b": 1,
+      "p": [
+        1,
+        0,
+        3,
+        2,
+        5,
+        4
+      ],
+      "through": 1,
+      "L": 5,
+      "d": 1,
+      "t": 7,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        12
+      ],
+      "count": 12
+    },
+    {
+      "a": 1,
+      "b": 5,
+      "p": [
+        1,
+        0,
+        5,
+        4,
+        3,
+        2
+      ],
+      "through": 1,
+      "L": 5,
+      "d": 1,
+      "t": 7,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        10
+      ],
+      "count": 10
+    },
+    {
+      "a": 3,
+      "b": 3,
+      "p": [
+        1,
+        0,
+        5,
+        4,
+        3,
+        2
+      ],
+      "through": 1,
+      "L": 5,
+      "d": 1,
+      "t": 7,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        11
+      ],
+      "count": 11
+    },
+    {
+      "a": 4,
+      "b": 2,
+      "p": [
+        1,
+        0,
+        5,
+        4,
+        3,
+        2
+      ],
+      "through": 2,
+      "L": 4,
+      "d": 1,
+      "t": 6,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        8
+      ],
+      "count": 8
+    },
+    {
+      "a": 5,
+      "b": 1,
+      "p": [
+        1,
+        0,
+        5,
+        4,
+        3,
+        2
+      ],
+      "through": 1,
+      "L": 5,
+      "d": 1,
+      "t": 7,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        10
+      ],
+      "count": 10
+    },
+    {
+      "a": 1,
+      "b": 5,
+      "p": [
+        3,
+        2,
+        1,
+        0,
+        5,
+        4
+      ],
+      "through": 1,
+      "L": 5,
+      "d": 1,
+      "t": 7,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        10
+      ],
+      "count": 10
+    },
+    {
+      "a": 2,
+      "b": 4,
+      "p": [
+        3,
+        2,
+        1,
+        0,
+        5,
+        4
+      ],
+      "through": 2,
+      "L": 4,
+      "d": 1,
+      "t": 6,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        8
+      ],
+      "count": 8
+    },
+    {
+      "a": 3,
+      "b": 3,
+      "p": [
+        3,
+        2,
+        1,
+        0,
+        5,
+        4
+      ],
+      "through": 1,
+      "L": 5,
+      "d": 1,
+      "t": 7,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        11
+      ],
+      "count": 11
+    },
+    {
+      "a": 5,
+      "b": 1,
+      "p": [
+        3,
+        2,
+        1,
+        0,
+        5,
+        4
+      ],
+      "through": 1,
+      "L": 5,
+      "d": 1,
+      "t": 7,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        10
+      ],
+      "count": 10
+    },
+    {
+      "a": 1,
+      "b": 5,
+      "p": [
+        5,
+        2,
+        1,
+        4,
+        3,
+        0
+      ],
+      "through": 1,
+      "L": 5,
+      "d": 1,
+      "t": 7,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        12
+      ],
+      "count": 12
+    },
+    {
+      "a": 2,
+      "b": 4,
+      "p": [
+        5,
+        2,
+        1,
+        4,
+        3,
+        0
+      ],
+      "through": 2,
+      "L": 4,
+      "d": 1,
+      "t": 6,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        9
+      ],
+      "count": 9
+    },
+    {
+      "a": 3,
+      "b": 3,
+      "p": [
+        5,
+        2,
+        1,
+        4,
+        3,
+        0
+      ],
+      "through": 1,
+      "L": 5,
+      "d": 1,
+      "t": 7,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        20
+      ],
+      "count": 20
+    },
+    {
+      "a": 4,
+      "b": 2,
+      "p": [
+        5,
+        2,
+        1,
+        4,
+        3,
+        0
+      ],
+      "through": 2,
+      "L": 4,
+      "d": 1,
+      "t": 6,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        9
+      ],
+      "count": 9
+    },
+    {
+      "a": 5,
+      "b": 1,
+      "p": [
+        5,
+        2,
+        1,
+        4,
+        3,
+        0
+      ],
+      "through": 1,
+      "L": 5,
+      "d": 1,
+      "t": 7,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        12
+      ],
+      "count": 12
+    },
+    {
+      "a": 1,
+      "b": 5,
+      "p": [
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "through": 1,
+      "L": 5,
+      "d": 1,
+      "t": 7,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        10
+      ],
+      "count": 10
+    },
+    {
+      "a": 2,
+      "b": 4,
+      "p": [
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "through": 2,
+      "L": 4,
+      "d": 1,
+      "t": 6,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        8
+      ],
+      "count": 8
+    },
+    {
+      "a": 3,
+      "b": 3,
+      "p": [
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "through": 3,
+      "L": 3,
+      "d": 1,
+      "t": 5,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        6
+      ],
+      "count": 6
+    },
+    {
+      "a": 4,
+      "b": 2,
+      "p": [
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "through": 2,
+      "L": 4,
+      "d": 1,
+      "t": 6,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        8
+      ],
+      "count": 8
+    },
+    {
+      "a": 5,
+      "b": 1,
+      "p": [
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "through": 1,
+      "L": 5,
+      "d": 1,
+      "t": 7,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        10
+      ],
+      "count": 10
+    },
+    {
+      "a": 5,
+      "b": 3,
+      "p": [
+        1,
+        0,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2
+      ],
+      "through": 3,
+      "L": 5,
+      "d": 1,
+      "t": 7,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        10
+      ],
+      "count": 10
+    },
+    {
+      "a": 3,
+      "b": 5,
+      "p": [
+        5,
+        4,
+        3,
+        2,
+        1,
+        0,
+        7,
+        6
+      ],
+      "through": 3,
+      "L": 5,
+      "d": 1,
+      "t": 7,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        10
+      ],
+      "count": 10
+    },
+    {
+      "a": 5,
+      "b": 3,
+      "p": [
+        7,
+        2,
+        1,
+        6,
+        5,
+        4,
+        3,
+        0
+      ],
+      "through": 3,
+      "L": 5,
+      "d": 1,
+      "t": 7,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        11
+      ],
+      "count": 11
+    },
+    {
+      "a": 3,
+      "b": 5,
+      "p": [
+        7,
+        4,
+        3,
+        2,
+        1,
+        6,
+        5,
+        0
+      ],
+      "through": 3,
+      "L": 5,
+      "d": 1,
+      "t": 7,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        11
+      ],
+      "count": 11
+    },
+    {
+      "a": 3,
+      "b": 5,
+      "p": [
+        7,
+        6,
+        3,
+        2,
+        5,
+        4,
+        1,
+        0
+      ],
+      "through": 3,
+      "L": 5,
+      "d": 1,
+      "t": 7,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        11
+      ],
+      "count": 11
+    },
+    {
+      "a": 5,
+      "b": 3,
+      "p": [
+        7,
+        6,
+        3,
+        2,
+        5,
+        4,
+        1,
+        0
+      ],
+      "through": 3,
+      "L": 5,
+      "d": 1,
+      "t": 7,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        11
+      ],
+      "count": 11
+    },
+    {
+      "a": 3,
+      "b": 5,
+      "p": [
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "through": 3,
+      "L": 5,
+      "d": 1,
+      "t": 7,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        10
+      ],
+      "count": 10
+    },
+    {
+      "a": 4,
+      "b": 4,
+      "p": [
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "through": 4,
+      "L": 4,
+      "d": 1,
+      "t": 6,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        8
+      ],
+      "count": 8
+    },
+    {
+      "a": 5,
+      "b": 3,
+      "p": [
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "through": 3,
+      "L": 5,
+      "d": 1,
+      "t": 7,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        10
+      ],
+      "count": 10
+    },
+    {
+      "a": 12,
+      "b": 2,
+      "p": [
+        13,
+        2,
+        1,
+        4,
+        3,
+        6,
+        5,
+        8,
+        7,
+        10,
+        9,
+        12,
+        11,
+        0
+      ],
+      "through": 2,
+      "L": 12,
+      "d": 1,
+      "t": 14,
+      "distribution_by_number_of_exceptional_components": [
+        0,
+        49
+      ],
+      "count": 49
+    }
+  ],
+  "candidate_sha256": "fabfa3c8c5599703ea77876e67c50a55504f157ecdd4de7c42e817cb3a668965"
+}
