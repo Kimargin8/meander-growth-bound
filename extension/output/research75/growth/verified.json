@@ -1,0 +1,86 @@
+{
+  "odd": 386058577,
+  "even": 424317073,
+  "round": 440,
+  "x": "12401248195833/1058038773811",
+  "root": 245357193322677,
+  "maximum": 2667940370280775,
+  "checkpoints_sha256": {
+    "width32.local.checkpoint": "7a42adfbd5160f5a43c99d54df368dfe59f7b8d0dc8eee9513fa7c190bbf9e8c",
+    "width32-round360.bin": "06367e2567a3e3edc882f35c292ac48241d9c11f1d3295ceb4d6254452cfcc41",
+    "width32-round440.bin": "23fdd8c621fedbb2ef40556a1bf484758149ed28afebee0aed0a0675123ef538"
+  },
+  "parameter_upper": "1173/100",
+  "edge_denominator": 4096,
+  "edge_numerators": [
+    469,
+    474,
+    474,
+    474,
+    474,
+    474,
+    474,
+    474,
+    474,
+    474,
+    474,
+    474,
+    474,
+    474,
+    474,
+    474,
+    474,
+    474,
+    474,
+    474,
+    474,
+    474,
+    474,
+    474,
+    474,
+    474,
+    474,
+    474,
+    474,
+    474,
+    474,
+    469
+  ],
+  "normalized_old_over_new": "79336080907/174270568865",
+  "old_root_lower_multiplier": "308588629582/208548141853",
+  "old_denominator_exponent": 76,
+  "auxiliary_radius": 4,
+  "terminal_six_step_factor": "300444138341140529152/640297620801287196875",
+  "constant_for_all_orders": "8716941/100000000000000",
+  "rational_n_exponent": "14/25",
+  "finite_width_examples": [
+    {
+      "n": 39,
+      "epsilon": "1/100",
+      "published_width": 76,
+      "new_width": 78,
+      "combined": 76
+    },
+    {
+      "n": 100,
+      "epsilon": "1/100",
+      "published_width": 112,
+      "new_width": 114,
+      "combined": 112
+    },
+    {
+      "n": 1000,
+      "epsilon": "1/100",
+      "published_width": 626,
+      "new_width": 624,
+      "combined": 624
+    },
+    {
+      "n": 20000,
+      "epsilon": "1/100",
+      "published_width": 11398,
+      "new_width": 11270,
+      "combined": 11270
+    }
+  ]
+}
