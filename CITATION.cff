@@ -2,8 +2,8 @@ cff-version: 1.2.0
 message: "Please cite the paper and identify the version of the computational supplement used."
 type: software
 title: "A certified lower bound for the growth constant of plane meanders: computational supplement"
-version: "1.1.0"
-date-released: 2026-11-22
+version: "1.2.0"
+date-released: 2026-11-23
 authors:
   - family-names: Argunov
     given-names: Iaroslav
@@ -14,7 +14,7 @@ license:
 preferred-citation:
   type: unpublished
   status: preprint
-  doi: "10.5281/zenodo.24449944"
+  doi: "10.5281/zenodo.24460317"
   title: "A certified lower bound for the growth constant of plane meanders"
   authors:
     - family-names: Argunov

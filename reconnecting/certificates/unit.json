@@ -1,0 +1,15 @@
+{
+  "scope": "upper bound on the growth of the entire nested unit-shift W=32 language",
+  "width": 32,
+  "rounds": 40,
+  "odd": 386058577,
+  "even": 424317073,
+  "minimum": "2411518055024384/205440920266695",
+  "maximum": "3431031596329/292144566372",
+  "root": 286193142892761,
+  "largest": 3210580015748835,
+  "certified": "3431031596329/292144566372",
+  "input_sha256": "d7bd9f5549906c7bf5a7e1d591cd083e4c33a511d51369802c66cfb8c03802a2",
+  "output_sha256": "0afb1f908e93533bcd7493be3758b4c0aaafb16720d7233a56ee06ca384b90ca",
+  "output_bytes": 3088468656
+}

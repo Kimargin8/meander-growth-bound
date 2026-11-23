@@ -1,0 +1,15 @@
+{
+  "scope": "lower bound on unrestricted meanders",
+  "width": 32,
+  "rounds": 60,
+  "odd": 386058577,
+  "even": 424317073,
+  "minimum": "1461549008357498/124174541777295",
+  "maximum": "4642720698067/394065564247",
+  "root": 320777674662512,
+  "largest": 3828795242585431,
+  "certified": "1461549008357498/124174541777295",
+  "input_sha256": "d7bd9f5549906c7bf5a7e1d591cd083e4c33a511d51369802c66cfb8c03802a2",
+  "output_sha256": "192394a2f012fcc6e9913767c0916ec3cc71b1f977da7a3fb5c1f8d4d339f334",
+  "output_bytes": 3088468656
+}
