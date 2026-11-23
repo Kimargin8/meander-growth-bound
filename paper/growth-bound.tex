@@ -16,26 +16,30 @@
 \hypersetup{pdftitle={A certified lower bound for the growth constant of plane meanders},pdfauthor={Iaroslav Argunov}}
 \title{\bfseries A certified lower bound for the growth constant of plane meanders}
 \author{Iaroslav Argunov\\{\small Independent Researcher, Oakland, California, USA}}
-\date{November 22, 2026\\{\small Revised manuscript, version 1.1}}
+\date{November 23, 2026\\{\small Revised manuscript, version 1.2}}
+\newcommand{\unit}{\mathrm{unit}}\newcommand{\mix}{\mathrm{mix}}
+\newcommand{\floor}[1]{\lfloor #1\rfloor}
+\newcommand{\spc}{\mathop{\rm splice}\nolimits}\newcommand{\ins}{\mathop{\rm ins}\nolimits}
 \begin{document}
 \maketitle
 \begin{abstract}
-Let \(M_n\) count the connected closed plane meanders on \(2n\) ordered sites. We prove that \(\lim M_n^{1/n}>\newresult\). Starting with the connectivity transfer on at most 32 exposed ends, we sum excursions to width 34 that return to the address of an ordinary boundary shift. The resulting comparison has just two additional rational weights. Two programs check its integer witness on every coordinate. The same construction gives a deterministic relative approximation to \(M_n\) with prescribed error \(\epsilon\) in \(O^*(2^{14n/25}\epsilon^{-3/2})\) bit operations. A separate computation confined to width 26 gives the independent lower bound \(11.421465\).
-
+Let \(M_n\) count the connected closed plane meanders on \(2n\) ordered sites. We prove that \(\lim M_n^{1/n}>11.7701179922\). Our transfer retains at most 32 exposed ends and admits excursions that reconnect two paths at the edge of the strip. The growth constant of the comparison language allowing only nested unit displacements, at any depth in the same strip, is below \(11.7442937206\). Thus the change in connectivity contributes a provable increase. Two independently implemented row scans verify each rational inequality. Combined with finite-window bounds for partial matchings, the lower bound yields deterministic relative approximation in \(O^*(2^{9n/17}\epsilon^{-3/2})\) or \(O^*(2^{14n/27}\epsilon^{-2})\) bit operations.
 \end{abstract}
+
+\noindent\textit{Keywords.} Plane meanders, transfer matrices, growth constants, certified enumeration.
 
 \section{Counting convention and result}
 Fix the order of sites on a horizontal line. A closed meander is an ordered pair of noncrossing perfect matchings on the sites, drawn on opposite banks, whose union is one cycle. In particular \(M_1=1,\ M_2=2,\ M_3=8\). Albert and Paterson proved the existence of
 \(\mu=\lim_{n\to\infty}M_n^{1/n}\) and obtained \(11.380\le\mu\le12.901\) by bounding the language of meander words \cite{ap}. Caroppo, Da Lozzo, Di Battista and Vihrovs give the upper bound \(12.806\) and recall \(11.380\) on the lower side \cite{caroppo}. Borga, F\'eray and Winkler record the interval \([11.380,12.806]\) in their recent survey \cite[p.~41]{bfw}. The constants here use the order \(n\); with the number of crossings as exponent their square roots apply.
 
-\begin{theorem}\label{main}
+\begin{theorem}\label{mixedclaim}
 The ordinary meandric growth constant satisfies
 \[
-             \mu\ \ge\ \frac{\newnum}{\newden}\ >\ \newresult .
+             \mu\ \ge\ Y:=\frac{1461549008357498}{124174541777295}\ >\ 11.7701179922 .
 \]
 \end{theorem}
 
-Jensen's transfer through a vertical cut \cite{jensen} records how the exposed ends are paired. Restriction to a fixed width gives a family of finite graphs; the width-32 graph alone has growth less than \(11.688634\). Sections~\ref{physical} and~\ref{integer} establish that comparison. Section~\ref{exits} sums excursions beyond the strip and proves Theorem~\ref{main}. Section~\ref{uniform} gives a lower bound valid at every finite order. Earlier uses of restricted meander languages include Bacher's exterior arches \cite{bacher} and the constructions of Albert and Paterson \cite{ap}.
+Jensen's transfer through a vertical cut \cite{jensen} records how the exposed ends are paired. Restriction to a fixed width gives a family of finite graphs; the width-32 graph alone has growth less than \(11.688634\). Sections~\ref{physical} and~\ref{integer} establish that comparison. Section~\ref{exits} first sums excursions that preserve the boundary pairing. Section~\ref{mixed} enlarges this language and proves Theorem~\ref{mixedclaim}, as well as a strict separation from unit displacements at every nesting depth. An independent upper bound from local cycle detection gives \(\mu<12.648387\)~\cite{windows}. Section~\ref{uniform} gives a lower bound valid at every finite order. Earlier uses of restricted meander languages include Bacher's exterior arches \cite{bacher} and the constructions of Albert and Paterson \cite{ap}.
 
 \section{A finite transfer inside the connected language}\label{physical}
 Order the \(2k\) exposed ends by following the boundary of the scanned half-plane from the uppermost to the lowermost end. Write \((\pi,u)\) for their noncrossing pairing by paths already drawn and the number \(u\) of upper ends. The slit lies between ends \(u\) and \(u+1\), with \(0\le u\le 2k\). Retain \(1\le k\le W/2\) for an even \(W\ge2\). The first site necessarily opens two ends and reaches \(o=(\{1,2\},1)\). Strip off this site and the final site, which closes its two ends in state \(o\).
@@ -116,13 +120,96 @@ On a boundary row with available shift destinations \(j\), add \(\lfloor\sum_j k
 \]
 All cells of the tested vector are positive and at most \(2^{52}\). The row sum of \(C\) is at most four. Across two sweeps the integers compared are at most \(2^{56}\); the weighted numerator on a top row is at most \(474\cdot 2\cdot 4\cdot2^{52}<2^{64}\). Products of the compared entries fit in 128 bits.
 
-\begin{proof}[Proof of Theorem~\ref{main}]
+\begin{proof}[Proof that \(\mu\ge X\)]
 Put \(s=\sqrt X\), so \(2<s<s_0\). Write \(A=\widetilde C^2\) on odd states. Every stored odd state reaches the root in 30 ordinary sites, hence \(A^{15}e_o\ge{\bf1}\). From \(Av\ge Xv\) we get
 \[
        (A^{h+15})_{oo}\ge X^h v_o/\max v \qquad(h\ge0).
 \]
 The root entries of \(\widetilde B(1/s)^{2h+30}\) are therefore bounded below by a fixed positive number. The sum of these entries over \(h\) diverges. Adding the compulsory first and last sites embeds the counted words, with their actual lengths, in connected meanders. The series \(\sum_n M_n s^{-2n}\) diverges, which proves \(\mu\ge X\).
 \end{proof}
+
+
+\section{Reconnecting returns and the limit of unit displacements}\label{mixed}
+The \emph{unit language} also allows a horizontal step at width \(W\) to be realized by opening, walking at width \(W+2\) through a net unit displacement, and closing. Each step of that walk can again have such a realization, to arbitrary finite depth. The \emph{mixed language} uses the depth-six excursions and additional returns specified below. Write \(\mu_{\unit}(W),\mu_{\mix}(W)\) for the limsup of the \(n\)-th roots of their complete-word counts on \(2n\) sites.
+
+\begin{theorem}\label{separation}
+At \(W=32\),
+\[
+ \mu_{\unit}(32)\le \frac{3431031596329}{292144566372}
+ <\frac{1461549008357498}{124174541777295}\le\mu_{\mix}(32)\le\mu .
+\]
+The two rational numbers differ by more than \(0.02582427\).
+\end{theorem}
+The first comparison holds for the union over all finite nesting depths. The last follows from the injection of complete words into connected meanders. The exponent throughout is per pair of crossings. The preceding unit-shift comparison gives \(11.7209770594\)~\cite{arg}. The upper bound above compares the mixed language with the entire unit recursion.
+
+
+\subsection{Addresses and weights of first returns}
+Index the \(W\) old ends from \(0\) to \(W-1\). Write \(\ins_u\) for insertion of a paired pair in gap \(u\), and \(\spc_q\) for deletion of ends \(q-1,q\) with fusion of their former partners. A splice of partners is forbidden. Open at gap \(u\), move from \(a=u+1\) to \(a+d\) on the enlarged boundary, then close. Put \(v=u+d\), with \(0\le v\le W\). The destination has gap \(v\). For \(d=0\) the return is forbidden. For \(|d|=1\) the pairing remains \(\pi\). For longer displacements it is
+\[
+ \pi'=\begin{cases}
+ \ins_u\spc_{v-1}\pi,&d\ge2,\\
+ \ins_{u-2}\spc_{v+1}\pi,&d\le-2 .
+ \end{cases}
+\]
+Indeed a positive displacement consumes old ends \(v-2,v-1\), both to the right of the newly inserted pair. A negative displacement consumes old ends \(v,v+1\) to its left. For example, from \(u=0\) on pairs \((0,3),(1,2)\), displacement two gives \((0,1),(2,3)\).
+
+Give each site weight \(z=1/s\), set \(x=s^2\), and let \(P\) be the symmetric weighted adjacency matrix on the enlarged path of gaps \(0,\ldots,W+2\). Each edge has weight one plus the normalized bonus for its unit realizations one level farther out. The last level has ordinary edges. For any legal direct return the series is \(z^2[(I-zP)^{-1}]_{a,a+d}\). Divide an odd return by \(z\) and retain an even return at its full weight. For \(i=\min(a,a+d)\), \(j=\max(a,a+d)\), the resulting entry equals
+\[
+ \frac{(\prod_{p=i}^{j-1} P_{p,p+1})D_iD_{W+2-j}}
+      {x^{1+\lfloor |d|/2\rfloor} D_{W+3}},\quad
+ D_0=D_1=1,\quad D_{p+2}=D_{p+1}-x^{-1}P_{p,p+1}^2D_p .
+\]
+This is the path cofactor formula. Reflection identifies the right-end minor with a left-end minor. Finite coefficient enumeration below also gives the lower inequalities without evaluating a resolvent.
+
+There is a second type at \(d=\pm2\), of the form \(\mathsf U S_0\mathsf U S_d\mathsf D S_0\mathsf D\). Each \(S_e\) here is an ordinary horizontal walk of at most six sites and net displacement \(e\). The two old ends reached by the inner walk are replaced, in order, by two newly inserted ends. The old pairing is restored even when those ends were partners. The shortest rightward example is \(\mathsf{UURRDD}\), one of the jumps described by Albert and Paterson~\cite{ap,slides}. Inside a direct return all subsidiary first returns move by one place. The second type has one subsidiary first return of displacement two. Its position is recovered from the word.
+
+
+\subsection{The lower certificate}
+With source rows, let \(O\) contain the ordinary strip moves and the normalized odd direct returns at \(d=\pm1,\pm3\). Let \(E\) contain the two even types at \(d=\pm2\). Each macrostep consists of an odd block, optionally preceded by one even block. Excursions are recovered from successive returns to the old width. Their displacements and the parity of their lengths identify the block boundaries. Within a direct excursion, successive returns to the next width recover its unit steps recursively. A word in this language thus determines its decomposition.
+
+The following lower weights were fixed at \(x_0=12\). Index each row by the smaller of the initial and final gaps, numbering the gaps from zero. The exponent in parentheses denotes repetition. The first row gives a bonus in addition to the ordinary unit edge.
+\begin{center}\begin{tabular}{ll}
+\toprule Return & Numerators, common denominator \(4096\)\\\midrule
+Direct, \(|d|=1\) & \(582,\ 593,\ 595^{(28)},\ 593,\ 582\)\\
+Direct, \(|d|=2\) & \(63,\ 64^{(29)},\ 63\)\\
+Direct, \(|d|=3\) & \(83,\ 84^{(28)},\ 83\)\\
+Pairing preserved, \(|d|=2\) & \(5\) at every legal destination\\\bottomrule
+\end{tabular}\end{center}
+One computation uses path minors with positive leading determinants. Another sums nonnegative integer coefficients through 83 sites. They give the same lower entries for all three direct rows. Finite subfamilies through site lengths 47, 28 and 43 already cover the three direct rows, respectively. The preserving row is covered through length 22. Since each normalized series has nonnegative coefficients in \(z\), for \(s^2\le12\) the true macrostep matrix dominates \(s^{-1}C\), where \(C=(I+E)O\) uses the fixed table.
+
+For an integral vector \(v>0\), use componentwise floors to define \(w=\floor{Ov}\) and \(F(v)=w+\floor{Ew}\). Then \(F(F(v))\le C^2v\). Each macrostep reverses slit parity, since its final constituent has odd length. On the odd part a full scan gives \(F(F(v))\ge Yv\) with
+\[
+        Y=1461549008357498/124174541777295 .
+\]
+To see why this bounds complete words, put \(A=C^2|_{\rm odd}\). Ordinary strip moves alone let every odd state return to \(o\) in a common number \(b\) of two-step slots, by reducing the pairing to width two and padding at \(o\)~\cite{arg}. Hence \((A^{k+b})_{oo}\ge Y^k v_o/\max_i v_i\). At \(s=\sqrt Y\) the series of rooted returns diverges: the weights contributed by \(2(k+b)\) macrosteps are bounded below by \(Y^{-b}v_o/\max_i v_i\). Adding the first and last sites multiplies this series by \(z^2\). The radius of convergence gives \(\mu_{\mix}(32)\ge Y\).
+
+The SHA-256 digests of the positive output vectors, listed in 32-digit halves, identify the inputs to the final row scans:
+\begin{center}\small\begin{tabular}{ll}
+Mixed lower & \texttt{192394a2f012fcc6e9913767c0916ec3}\\
+&\texttt{cc71b1f977da7a3fb5c1f8d4d339f334}\\[2pt]
+Unit upper & \texttt{0afb1f908e93533bcd7493be3758b4c0}\\
+&\texttt{aaafb16720d7233a56ee06ca384b90ca}
+\end{tabular}\end{center}
+
+
+\subsection{An upper certificate for every unit depth}
+On the infinite path, if every unit edge has normalized weight at most \(t\) and \(2t<s\), the new unit bonus is bounded above by
+\[
+ f_s(t)=\sum_{h\ge0}\binom{2h+1}{h}x^{-h-1}t^{2h+1}
+      =\frac{s/\sqrt{s^2-4t^2}-1}{2t}.
+\]
+At \(x\ge117/10\), \(f_s(7/6)\le1/6\), as one checks by squaring positive quantities. Every finite path embeds in this line. Induction bounds the entire unit-edge weight by \(7/6\) at every depth. Monotone convergence extends the bound to the union over depths.
+
+At \(x_-=1173/100\), assign this cap to edges eight levels outside the base strip, propagate inwards by the positive path resolvents and round upwards. This also dominates shorter nesting depths. The upper exterior bonuses, in units of \(1/4096\), are \(611,624,626^{(28)},624,611\). A second calculation sums the first 52 odd path lengths. For external edge bound \(t\), the remaining normalized tail is at most \((2t/x_-)q^{52}/(1-q)\), with \(q=4t^2/x_-<1\). It gives the same upper table.
+
+Let \(H\) be the ordinary strip matrix with these upper bonuses, and round each row application upwards. A positive odd vector \(p\) satisfies
+\[
+ H^2p\ \le\ \lceil H\lceil Hp\rceil\rceil\
+ \le\ \frac{3431031596329}{292144566372}\,p=U p .
+\]
+For \(x>U>x_-\) the true unit-step matrix is bounded by \(H/\sqrt{x}\), since its normalized weights decrease with \(x\). In the maximum norm weighted by \(p\), its two-step restriction has norm at most \(U/x<1\). The rooted generating series converges. This proves the upper assertion for the stated width and recursion.
+
+\paragraph{Verification.} Both inequalities scan 386,058,577 odd and 424,317,073 even folded coordinates. The two independent scans of each certificate were repeated before this revision. The lower generator splices in the old catalogue and inserts an adjacent pair. A separate reader inserts the pair in a 34-end word, finds its partners, performs the physical splice, and ranks the resulting 32-end word. For the upper certificate the separate reader repeats the row inequalities with the walk-derived weights. The extreme ratios give Theorems~\ref{mixedclaim} and~\ref{separation}. Complete arch-pair enumeration agrees with the block transfer in 63 small width, depth and order tests.
 
 
 \section{A second certificate from one root}
@@ -217,13 +304,41 @@ At one percent relative error, using the two strongest denominators in the width
 
 
 
+\section{Two error bounds from a local connectivity window}
+The improvement from \(X\) to \(Y\) also changes the cost of approximation. Let \(y=117701/10000\). Since \(\lim M_n^{1/n}\ge Y>y\), there is a constant \(c>0\) such that \(M_n\ge c y^n\) for all \(n\ge1\). The algorithm below tests its stopping condition from the observed strip count and so does not need a numerical value of \(c\).
+
+Use the window transfer of~\cite{windows} on the \(k\) ends nearest the slit on each bank. A closing that visibly creates a cycle is rejected. Retained ends with forgotten partners are singletons. A word read on a proper subinterval of a connected meander has no complete cycle there, hence passes the test. Give a double opening weight \(Q>1\), a double closing weight \(Q^{-1}\), and a shift weight one. For the resulting nonnegative transfer \(T_{k,Q}\), witnesses \(v>0\) with \(T_{k,Q}v\le r v\) give the following two comparisons. The value \(B=v_\varnothing/\min_i v_i\) bounds the prefactor for walks starting at the empty window.
+\begin{center}\small
+\begin{tabular}{rrrr}
+\toprule
+\(k\)& \(Q\)& \(r\)& \(B\)\\\midrule
+12 & \(159/100\) & \(19392772299/5000000000\) & \(14466680237019/9461355438135\)\\
+13 & \(36/25\) & \(18853838429/5000000000\) & \(443261052103030/247657296425025\)\\
+\bottomrule
+\end{tabular}
+\end{center}
+The separate row checkers retained in the supplement reconstruct all four extensions on each window; they verified the inequalities on 716\,861 and 2\,733\,515 states, respectively. The weighted sum of admitted words of length \(t\) is at most \(B r^t\), by iteration from the empty window.
+
+At a cut of height \(h>W\), each half read from its outer end has weight \(Q^{h/2}\). Bounding the two halves separately and summing over the \(2n-1\) interior cuts gives the upper bound
+\[
+ D_W=(2n-1)B^2r^{2n}Q^{-W}
+\]
+on \(M_n-C_n(W)\). Starting at width two, increase \(W\) in steps of two until \(D_W\le\epsilon C_n(W)\), or use the exact strip at \(W=2n\). The test is rational. If \(D_W\le\epsilon c y^n/2\) then \(D_W\le\epsilon M_n/2\) and \(C_n(W)\ge M_n/2\), so the test must already hold. The first stopping width is therefore at most
+\[
+ n\log_Q(r^2/y)+\log_Q(n/\epsilon)+O(1).
+\]
+For the first row \((r^2/y)^{17}<Q^9\) and \(Q^3>4\); for the second \((r^2/y)^{27}<Q^{14}\) and \(Q^2>2\). With the strip cost \(O^*(2^W)\), all smaller widths together cost only a polynomial factor more. This proves the two bit-operation and bit-space bounds in the abstract, with \(0\le M_n-C_n(W)\le\epsilon M_n\). The constants are uniform in \(n,\epsilon\). The second choice reduces the exponent of \(n\) and increases the dependence on the prescribed precision.
+
 \section*{Data and code availability}
-This revision and its verification materials are archived at \href{https://doi.org/10.5281/zenodo.24449944}{doi:10.5281/zenodo.24449944}. The \href{https://doi.org/10.5281/zenodo.24448957}{first archived version} includes the original width-32 comparison and the companion paper. The \href{https://github.com/Kimargin8/meander-growth-bound}{project repository} provides versioned releases.
+The present version and its verification materials are archived at \href{https://doi.org/10.5281/zenodo.24460317}{doi:10.5281/zenodo.24460317}. The \href{https://github.com/Kimargin8/meander-growth-bound/releases/tag/v1.2.0}{versioned computational supplement} supplies both width-32 builders and their independent auditors, the integer boundary weights, and the small-word comparison. The previous public witnesses are archived in \href{https://doi.org/10.5281/zenodo.24449944}{version 1.1} and \href{https://doi.org/10.5281/zenodo.24448957}{version 1.0}.
 
 \section*{Declaration of generative AI use}
 The author used OpenAI ChatGPT and Codex to explore mathematical arguments, develop and test the verification programs, and draft and revise the text. The supplement contains the programs and integer verification records needed to reconstruct and check the witnesses.
 
 \begin{thebibliography}{9}\small
+\bibitem{arg} I.~Argunov, \emph{A certified lower bound for the growth constant of plane meanders}, version 1.1 (2026). \href{https://doi.org/10.5281/zenodo.24449944}{Previous version and supplement}.
+\bibitem{windows} I.~Argunov, \emph{Meandric growth from local connectivity at a cut} (2026). \href{https://doi.org/10.5281/zenodo.24457226}{Preprint and verification materials}.
+\bibitem{slides} M.~H. Albert and M.~S. Paterson, \href{https://cs.otago.ac.nz/research/theory/Talks/Meanders.pdf}{Bounds for the Growth Rate of Meander Numbers}, FPSAC, Vancouver, 2004, slide 14.
 \bibitem{halves} I.~Argunov, \emph{Shortest and near-shortest halves of closed plane meanders}, companion manuscript (2026), sections on simultaneous cuts and approximation.
 \bibitem{ap} M.~H. Albert and M.~S. Paterson, \emph{Bounds for the growth rate of meander numbers}, J. Combin. Theory Ser. A \textbf{112} (2005), 250--262.
 \href{https://doi.org/10.1016/j.jcta.2005.02.006}{Journal article}.
