@@ -33,6 +33,7 @@ def main():
     small={(1,"1/2"):1,(2,"1/3"):2,(3,"1/4"):8,(4,"1/5"):42,(6,"1/1000"):1828}
     for (n,eps),count in small.items():
         assert json.loads(run("research/review75/paper/precision.py",str(n),eps,"--count"))["lower_count"]==count
+    subprocess.run([sys.executable,"-B",str(ROOT/"reconnecting/certificate.py")],cwd=ROOT,check=True)
     print(f"Verified {len(manifests)} files, boundary weights, growth certificate, finite estimates and small counts.")
 
 

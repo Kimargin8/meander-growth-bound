@@ -1,12 +1,15 @@
 # A certified lower bound for the growth constant of plane meanders
 
-**Iaroslav Argunov · Revised manuscript and verification materials · Version 1.1.0**
+**Iaroslav Argunov · Revised manuscript and verification materials · Version 1.2.0**
 
-The revised paper proves that the growth constant of connected closed meanders is at least $12401248195833/1058038773811>11.7209770594$. The certificate sums selected walks outside a connectivity strip and uses two distinct additional weights on its boundary shifts. For prescribed relative error $\epsilon$, the paper obtains a deterministic algorithm using $O^*(2^{14n/25}\epsilon^{-3/2})$ bit operations and bits of memory.
+Reconnecting first returns on a 32-end strip give the rigorous lower bound $1461549008357498/124174541777295>11.7701179922$ for the growth constant of ordinary closed plane meanders. At the same width, unit displacements at arbitrary nesting depth have growth at most $3431031596329/292144566372<11.7442937206$. The two bounds separate the two restricted languages. The paper also gives two deterministic relative approximation guarantees.
 
-[Revised paper](paper/growth-bound.pdf) · [LaTeX source](paper/growth-bound.tex) · [Companion paper](companion/shortest_meander_halves.pdf) · [Zenodo v1.1.0](https://doi.org/10.5281/zenodo.24449944) · [First release](https://doi.org/10.5281/zenodo.24448957)
+[Revised paper](paper/growth-bound.pdf) · [LaTeX manuscript](paper/growth-bound.tex) · [Reconnecting-return certificates and replication](reconnecting/README.md) · [Companion paper](companion/shortest_meander_halves.pdf) · [Zenodo v1.2.0](https://doi.org/10.5281/zenodo.24460317) · [Version 1.1.0](https://doi.org/10.5281/zenodo.24449944)
 
-## Reproduce the revision
+From the root run `python -B verify.py` to check the release, recompute both sets of boundary weights and trace the 63 small comparison cases. See the [reproduction guide](reconnecting/README.md) for the optional full coordinate scans.
+
+## The version 1.1 calculations
+
 
 From the root of this release, using Python 3.10 or later, run
 

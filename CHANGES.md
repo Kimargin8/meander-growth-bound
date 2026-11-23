@@ -1,5 +1,9 @@
 # Changes from version 1.0.0
 
+## Version 1.2.0 · 23 November 2026
+
+Reconnecting excursions give a lower bound above 11.7701179922. A separate upper certificate below 11.7442937206 covers the entire nested unit-displacement language at width 32. Both final vectors were scanned again before release. Two local-window certificates yield improved relative approximation exponents. The paper incorporates the new proofs and retains the finite-order estimates of version 1.1.
+
 The original width-32 strip and the independent one-root calculation at width 26 are retained. The revised paper adds the following results for ordinary connected closed meanders.
 
 * Admitting excursions to width 34 yields the exact lower bound 12401248195833/1058038773811 for the growth constant. The old strip bound was 4581442652581/392062763189. Two independently indexed programs check the new witness on 386,058,577 odd coordinates.
