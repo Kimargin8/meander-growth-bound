@@ -1,0 +1,23 @@
+{
+  "witness": {
+    "k": 13,
+    "p": 36,
+    "q": 25,
+    "rounds": 110,
+    "folded": true,
+    "states": 2733515,
+    "den": 10000000000,
+    "upper": 37707676858,
+    "v_empty": 443261052103030,
+    "v_min": 247657296425025,
+    "seconds": 10.7211
+  },
+  "audit": {
+    "states": 2733515,
+    "admitted_edges": 9840703,
+    "rejected_closures": 1093357,
+    "all_rows_pass": true,
+    "v_min": 247657296425025,
+    "v_empty": 443261052103030
+  }
+}
